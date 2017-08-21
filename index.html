@@ -66,6 +66,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-插入图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/21/插入图片/" class="article-date">
+  <time datetime="2017-08-21T08:05:51.000Z" itemprop="datePublished">2017-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/21/插入图片/">hexo文章插入图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要用到插件CodeFalling/hexo-asset-image。<br>首先确认 _config.yml 中有 post_asset_folder:true<br>安装此插件：npm install hexo-asset-image –save<br>等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹</p>
+<p>最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
+<p>! [你想输入的替代文字](xxxx/图片名.jpg)</p>
+<p><strong>注意：</strong>xxxx是这个md文件的名字，也是同名文件夹的名字，你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://QQCR.github.io/2017/08/21/插入图片/" data-id="cj6lw0f8z0002zh6e04qptj7u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-解决hexo网站部署到github以后不能显示hexo主题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/" class="article-date">
@@ -89,13 +129,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>hexo搭建好后本地server启动出现正常默认landscape主题样式<br><img src="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/有主题.jpg" alt="有主题"><br>但是部署到github以后出现的页面只有文字没有css样式<br><img src="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/无主题.jpg" alt="无主题"><br>这是配置文件_config.yml中url和root的设置问题</p>
-<p>部署的配置中，最好的方式是把项目的名称和github的名称相同<br>deploy:<br>  type: git<br>  repo: <a href="https://github.com/QQCR/QQCR.github.io.git" target="_blank" rel="external">https://github.com/QQCR/QQCR.github.io.git</a><br>  branch: master<br>否则像其他教程中直接进入<a href="https://QQCR.github.io是不可行的，比如repo的时候设置的名字是blog，域名那个地方输入的时候必须输入https://QQCR.github.io/blog.github.io才能进入" target="_blank" rel="external">https://QQCR.github.io是不可行的，比如repo的时候设置的名字是blog，域名那个地方输入的时候必须输入https://QQCR.github.io/blog.github.io才能进入</a></p>
-<p>确定好这点以后，如果不在子目录中，url注意就是这个网址，<a href="https://QQCR.github.io，而不是随意写的一个域名" target="_blank" rel="external">https://QQCR.github.io，而不是随意写的一个域名</a></p>
+<p>部署的配置中，最好的方式是把项目的名称和github的名称相同<br>deploy:<br>  type: git<br>  repo: <a href="https://github.com/QQCR/QQCR.github.io.git" target="_blank" rel="external">https://github.com/QQCR/QQCR.github.io.git</a><br>  branch: master<br>否则像其他教程中直接进入<br><a href="https://QQCR.github.io">https://QQCR.github.io</a><br>是不可行的，比如repo的时候设置的名字是blog，域名那个地方输入的时候必须输入<br><a href="https://QQCR.github.io/blog.github.io">https://QQCR.github.io/blog.github.io</a><br>才能进入</p>
+<p>确定好这点以后，如果不在子目录中，url注意就是这个网址，<br><a href="https://QQCR.github.io">https://QQCR.github.io</a><br>而不是随意写的一个域名</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://QQCR.github.io/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/" data-id="cj6lvlycj0002xy6ea57ckm0g" class="article-share-link">Share</a>
+      <a data-url="http://QQCR.github.io/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/" data-id="cj6lw0f910003zh6eo2cnjzxm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://QQCR.github.io/2017/08/20/first/" data-id="cj6lvlycd0000xy6ev9uxs402" class="article-share-link">Share</a>
+      <a data-url="http://QQCR.github.io/2017/08/20/first/" data-id="cj6lw0f8s0000zh6e11gpiffi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://QQCR.github.io/2017/08/20/hello-world/" data-id="cj6lvlycg0001xy6e24n75gub" class="article-share-link">Share</a>
+      <a data-url="http://QQCR.github.io/2017/08/20/hello-world/" data-id="cj6lw0f8w0001zh6elcxqfl9q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,6 +255,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/08/21/插入图片/">hexo文章插入图片</a>
+          </li>
         
           <li>
             <a href="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/">解决hexo网站部署到github以后不能显示hexo主题</a>
