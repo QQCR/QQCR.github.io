@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="QCR">
 <meta property="og:description" content="map 方法作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）例子：使得数组中的每一项都乘以4var timesFour = oldArray.map(function(val){return val * 4;});  reduce方法作用：迭代数组，并且把它累计到一个值中例子：让数组中的所有值相加var array = [4,5,6,7,8];var sin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-22T14:15:11.000Z">
+<meta property="og:updated_time" content="2017-08-22T14:16:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中关于数组的一些函数">
 <meta name="twitter:description" content="map 方法作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）例子：使得数组中的每一项都乘以4var timesFour = oldArray.map(function(val){return val * 4;});  reduce方法作用：迭代数组，并且把它累计到一个值中例子：让数组中的所有值相加var array = [4,5,6,7,8];var sin">
@@ -376,14 +376,14 @@
 </li>
 <li><p>sort方法<br>作用：按字母顺序或数字顺序对数组中的元素进行排序，改变原数组，返回被排序后的数组。<br>  sort 可以把比较函数作为参数传入。比较函数有返回值，当 a 小于 b，返回一个负数；当 a 大于 b ，返回一个正数；相等时返回0。如果没有传入比较函数，它将把值全部转成字符串，并按照字母顺序进行排序。<br>例子：从小到大排序<br>var array = [1, 12, 21, 2];<br>array.sort(function(a, b) {<br>return a - b;<br>});</p>
 </li>
-<li><p>reverse方法<br>作用：翻转数组<br>例子：<br>var myArray = [1, 2, 3];<br>myArray.reverse();<br>结果：【3，2，1】</p>
+<li><p>reverse方法<br>作用：翻转数组<br>例子：<br>var myArray = [1, 2, 3];<br>myArray.reverse();<br>结果:[3，2，1]</p>
 </li>
 <li><p>concat方法<br>作用：把两个数组的内容合并到一个数组中。参数是一个数组。<br>例子：<br>newArray = oldArray.concat(otherArray);</p>
 </li>
-</ol>
-<p>7。 split方法：字符串转数组<br>作用：按指定分隔符将字符串分割为数组。参数：分隔符<br>例子：var array = string.split(‘s’);<br>把字符串分割成array：array = string.split(“ “);</p>
-<ol>
-<li>join方法：数组转字符串<br>作用：把数组中的每一个元素用指定的连接符连接起来<br>例子：var salad = veggies.join(“ and “);<br>数组转字符串：joinedString = joinMe.join(“ “);</li>
+<li><p>split方法：字符串转数组<br>作用：按指定分隔符将字符串分割为数组。参数：分隔符<br>例子：var array = string.split(‘s’);<br>把字符串分割成array：array = string.split(“ “);</p>
+</li>
+<li><p>join方法：数组转字符串<br>作用：把数组中的每一个元素用指定的连接符连接起来<br>例子：var salad = veggies.join(“ and “);<br>数组转字符串：joinedString = joinMe.join(“ “);</p>
+</li>
 </ol>
 
       
