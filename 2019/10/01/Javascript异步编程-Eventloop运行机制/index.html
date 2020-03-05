@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -94,16 +94,20 @@
 
 
 
-<meta name="description" content="坚持比努力更可怕">
-<meta property="og:type" content="website">
-<meta property="og:title" content="QCR">
-<meta property="og:url" content="http://QQCR.github.io/page/2/index.html">
+<meta name="description" content="为什么JAVASCRIPT是单线程 JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScr">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript异步编程 Eventloop运行机制">
+<meta property="og:url" content="http://QQCR.github.io/2019/10/01/Javascript异步编程-Eventloop运行机制/index.html">
 <meta property="og:site_name" content="QCR">
-<meta property="og:description" content="坚持比努力更可怕">
+<meta property="og:description" content="为什么JAVASCRIPT是单线程 JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScr">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.processon.com/chart_image/id/58fd9b66e4b0639c2f5b5dc7.png">
+<meta property="og:updated_time" content="2020-03-05T01:54:09.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QCR">
-<meta name="twitter:description" content="坚持比努力更可怕">
+<meta name="twitter:title" content="Javascript异步编程 Eventloop运行机制">
+<meta name="twitter:description" content="为什么JAVASCRIPT是单线程 JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScr">
+<meta name="twitter:image" content="https://www.processon.com/chart_image/id/58fd9b66e4b0639c2f5b5dc7.png">
 
 
 
@@ -133,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://QQCR.github.io/page/2/"/>
+  <link rel="canonical" href="http://QQCR.github.io/2019/10/01/Javascript异步编程-Eventloop运行机制/"/>
 
 
 
 
 
-  <title>QCR</title>
+  <title>Javascript异步编程 Eventloop运行机制 | QCR</title>
   
 
 
@@ -158,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,9 +265,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -278,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2017/08/21/hexo文章插入图片/">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2019/10/01/Javascript异步编程-Eventloop运行机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="QinChaoru">
@@ -295,9 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/21/hexo文章插入图片/" itemprop="url">hexo文章插入图片</a></h1>
+          <h1 class="post-title" itemprop="name headline">Javascript异步编程 Eventloop运行机制</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T16:05:51+08:00">
-                2017-08-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T09:52:31+08:00">
+                2019-10-01
               </time>
             
 
@@ -369,18 +369,56 @@
       
 
       
-        
-          
-          需要用到插件CodeFalling/hexo-asset-image。首先确认 _config.yml 中有 post_asset_folder:true安装此插件：npm install hexo-asset-image –save等待一小段时间后，再运行hexo n “xxxx”来生成md博文时
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/21/hexo文章插入图片/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <ol>
+<li>为什么JAVASCRIPT是单线程<blockquote>
+<p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。</p>
+</blockquote>
+</li>
+<li>同步任务和异步任务<blockquote>
+<p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。（在异步操作完成后所要做的任务，它们通常以回调函数或者 Promise 的形式被放入事件队列）</p>
+</blockquote>
+</li>
+<li>异步操作和异步任务</li>
+</ol>
+<ul>
+<li>异步操作一般包括 网络请求 、文件读取 、数据库处理</li>
+<li>异步任务一般包括  setTimout / setInterval 、Promise 、requestAnimationFrame ( 浏览器独有 ) 、setImmediate ( Node 独有 ) 、process.nextTick ( Node 独有 )</li>
+<li>在浏览器端与在 Node 端的 Event Loop 机制是有所不同的</li>
+</ul>
+<ol>
+<li>事件和回调函数</li>
+</ol>
+<ul>
+<li>任务队列是一个事件的队列（也可以理解成消息的队列）”任务队列”中的事件，除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等）。只要指定过回调函数，这些事件发生时就会进入”任务队列”，等待主线程读取。</li>
+<li>所谓”回调函数”（callback， 指在另一个函数执行完成之后被调用的函数），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。</li>
+<li>回调和事件处理程序本质上并无区别，只是在不同情况下，不同的叫法。</li>
+</ul>
+<ol>
+<li>事件循环（Event Loop）<blockquote>
+<p>JavaScript引擎负责解析，执行JavaScript代码，但它并不能单独运行，通常都得有一个宿主环境，一般如浏览器或Node服务器，这些宿主环境创建主线程，提供一种机制，调用JavaScript引擎完成多个JavaScript代码块的调度，执行（是的，JavaScript代码都是按块执行的），并且循环不断，这种机制就称为事件循环（Event Loop）。</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p>关于事件循环流程分解如下：</p>
+<ol>
+<li>宿主环境为JavaScript创建线程时(主线程运行），会创建堆(heap)和栈(stack)，堆内存储JavaScript对象，栈内存储执行上下文；</li>
+<li>栈内执行上下文的同步任务按序执行，执行完即退栈，而当异步任务执行时，该异步任务进入等待状态（不入栈），同时通知线程：当触发该事件时（或该异步操作响应返回时），需向任务队列插入一个事件消息；</li>
+<li>当事件触发或响应返回时，线程向任务队列插入该事件消息（包含事件及回调）；</li>
+<li>当栈内同步任务执行完毕后，线程从任务队列取出一个事件消息，其对应异步任务（函数）入栈，执行回调函数，如果未绑定回调，这个消息会被丢弃，执行完任务后退栈；</li>
+<li>当线程空闲（即执行栈清空）时继续拉取任务队列下一轮消息（next tick，事件循环流转一次称为一次tick）。</li>
+</ol>
+</blockquote>
+<hr>
+<html><br><br>    var ele = document.querySelector(‘body’);<br><br>    function clickCb(event) {<br>        console.log(‘clicked’);<br>    }<br>    function bindEvent(callback) {<br>        ele.addEventListener(‘click’, callback);<br>    }<br><br>    bindEvent(clickCb);<br></html><br><img src="https://www.processon.com/chart_image/id/58fd9b66e4b0639c2f5b5dc7.png" alt="image"><br><br>6. setTimeout()<br>&gt; 除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。定时器功能主要由setTimeout()和setInterval()这两个函数来完成，它们的内部运行机制完全一样，区别在于前者指定的代码是一次性执行，后者则为反复执行<br>- 注意：setTimeout()只是将事件插入了”任务队列”，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。<br><br><html><br><br>    console.log(1);<br>    setTimeout(function(){console.log(2);},1000);<br>    console.log(3); //1，3，2<br></html>
+
+<html>
+
+<pre><code>setTimeout(function(){console.log(1);}, 0);
+console.log(2); //2，1
+</code></pre><p></p></html><br>setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，也就是说，尽可能早得执行。它在”任务队列”的尾部添加一个事件，因此要等到同步任务和”任务队列”现有的事件都处理完，才会得到执行。<p></p>
+
       
     </div>
     
@@ -395,312 +433,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="QinChaoru">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/" itemprop="url">解决hexo网站部署到github以后不能显示hexo主题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T15:35:22+08:00">
-                2017-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          hexo搭建好后本地server启动出现正常默认landscape主题样式但是部署到github以后出现的页面只有文字没有css样式这是配置文件_config.yml中url和root的设置问题
-部署的配置中，最好的方式是把项目的名称和github的名称相同deploy:  type: git  r
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/21/解决hexo网站部署到github以后不能显示hexo主题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/26/java-socket-编程相关/" rel="next" title="java socket 编程相关">
+                <i class="fa fa-chevron-left"></i> java socket 编程相关
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2017/08/20/first/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="QinChaoru">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/20/first/" itemprop="url">first</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T11:44:47+08:00">
-                2017-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          一直想做的事第一天 第一篇不知道能坚持多久但是请努力坚持
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/20/first/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -710,140 +472,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2017/08/20/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="QinChaoru">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/20/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T10:20:15+08:00">
-                2017-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/20/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -851,6 +484,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1050,10 +687,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
