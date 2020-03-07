@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,react," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="创建一个react项目：webpack一步一步构建1. 安装webpack在安装webpack之前，我们先建立一个文件夹并进入，当然你可以用其他方法，我这里就用命令了。 1234mkdir react-webpackcd react-webpacknpm initnpm install --save-dev webpack 2. 配置webpack.config.js在项目根目录建立webpack">
+<meta name="keywords" content="javascript,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建一个react+webpack+babel项目">
+<meta property="og:url" content="http://QQCR.github.io/2019/10/01/创建一个react-webpack-babel项目/index.html">
+<meta property="og:site_name" content="QCR">
+<meta property="og:description" content="创建一个react项目：webpack一步一步构建1. 安装webpack在安装webpack之前，我们先建立一个文件夹并进入，当然你可以用其他方法，我这里就用命令了。 1234mkdir react-webpackcd react-webpacknpm initnpm install --save-dev webpack 2. 配置webpack.config.js在项目根目录建立webpack">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-07T02:11:42.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建一个react+webpack+babel项目">
+<meta name="twitter:description" content="创建一个react项目：webpack一步一步构建1. 安装webpack在安装webpack之前，我们先建立一个文件夹并进入，当然你可以用其他方法，我这里就用命令了。 1234mkdir react-webpackcd react-webpacknpm initnpm install --save-dev webpack 2. 配置webpack.config.js在项目根目录建立webpack">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://QQCR.github.io/2019/10/01/创建一个react-webpack-babel项目/"/>
+
+
+
+
+
+  <title>创建一个react+webpack+babel项目 | QCR</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QCR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不知道会写点什么的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2019/10/01/创建一个react-webpack-babel项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QinChaoru">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">创建一个react+webpack+babel项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T10:08:45+08:00">
+                2019-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="创建一个react项目：webpack一步一步构建"><a href="#创建一个react项目：webpack一步一步构建" class="headerlink" title="创建一个react项目：webpack一步一步构建"></a>创建一个react项目：webpack一步一步构建</h1><h3 id="1-安装webpack"><a href="#1-安装webpack" class="headerlink" title="1. 安装webpack"></a>1. 安装webpack</h3><p>在安装webpack之前，我们先建立一个文件夹并进入，当然你可以用其他方法，我这里就用命令了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir react-webpack</div><div class="line">cd react-webpack</div><div class="line">npm init</div><div class="line">npm install --save-dev webpack</div></pre></td></tr></table></figure>
+<h3 id="2-配置webpack-config-js"><a href="#2-配置webpack-config-js" class="headerlink" title="2. 配置webpack.config.js"></a>2. 配置webpack.config.js</h3><p>在项目根目录建立webpack.config.js文件，这个文件是进行webpack配置的，先建立基本的入口和出口文件。</p>
+<h6 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var path =require(&apos;path&apos;);</div><div class="line">module.exports = &#123;</div><div class="line">    //入口文件</div><div class="line">    entry:&apos;./app/index.js&apos;,</div><div class="line">    //出口文件</div><div class="line">    output:&#123;</div><div class="line">        filename:&apos;index.js&apos;,</div><div class="line">        path:path.resolve(__dirname,&apos;dist&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-新建index-html文件"><a href="#3-新建index-html文件" class="headerlink" title="3. 新建index.html文件"></a>3. 新建index.html文件</h3><p>在根目录新建index.html文件，并引入webpack设置中的出口文件，代码如下。</p>
+<h6 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div><div class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</div><div class="line">    &lt;title&gt;React全家桶&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"> </div><div class="line">&lt;/body&gt;</div><div class="line">&lt;!--引入出口文件--&gt;</div><div class="line">&lt;script src=&quot;./dist/index.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-创建index-js文件"><a href="#4-创建index-js文件" class="headerlink" title="4. 创建index.js文件"></a>4. 创建index.js文件</h3><h6 id="app-index-js文件"><a href="#app-index-js文件" class="headerlink" title="/app/index.js文件"></a>/app/index.js文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function component()&#123;</div><div class="line">    var element = document.createElement(&apos;div&apos;);</div><div class="line">    element.innerHTML = (&apos;Hello JS&apos;);</div><div class="line">    return element;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">document.body.appendChild(component());</div></pre></td></tr></table></figure>
+<h3 id="5-加入打包命令"><a href="#5-加入打包命令" class="headerlink" title="5. 加入打包命令"></a>5. 加入打包命令</h3><p>打开package.json文件，在scripts属性中加入build命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;: &quot;webpack&quot;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<h3 id="6-测试webpack配置"><a href="#6-测试webpack配置" class="headerlink" title="6. 测试webpack配置"></a>6. 测试webpack配置</h3><p>通过上面的步骤，配置好了wbpack，现在可以测试一下我们webpack配置是否有问题。<br>在终端中输入npm run build ，就可以看到打包结果了。如果没有出现错误，在浏览器中打开，可以看到我们的编写结果。到这部为止，我们正确安装了webpack，并进行了出入口的配置，也看到了webpack的输出结果。</p>
+<h3 id="7-开发服务器配置"><a href="#7-开发服务器配置" class="headerlink" title="7. 开发服务器配置"></a>7. 开发服务器配置</h3><p>经过上面的配置，现在还缺少一个实时更新的服务，<br>在命令行安装webpack-dev-server,在终端中输入下面的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev webpack-dev-server</div></pre></td></tr></table></figure>
+<p>安装完成后，配置webpack.config.js文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">devServer:&#123;</div><div class="line">    contentBase:&apos;./&apos;,</div><div class="line">    host:&apos;localhost&apos;,</div><div class="line">    compress:true,</div><div class="line">    port:1818</div><div class="line">    //默认端口号8080</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置好后再packeage.json里增加一个scripts命令，我们起名叫server。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;: &quot;webpack&quot;,</div><div class="line">    &quot;server&quot;: &quot;webpack-dev-server --open&quot;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<p>这里的–open是直接打开浏览器的意思。这些都配置完成后，就可以在终端输入npm run server 看到结果了。</p>
+<h3 id="8-自动刷新浏览器"><a href="#8-自动刷新浏览器" class="headerlink" title="8. 自动刷新浏览器"></a>8. 自动刷新浏览器</h3><p>在我们修改代码时，现在并不能自动刷新浏览器，不会立即呈现我们编写的代码结果，而时要再次npm run build才可以。其实只要在出口文件配置中加一个publicPath:’temp/’,然后在index.html引入JS时写这个temp地址就可以实时预览了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output:&#123;</div><div class="line">    filename:&apos;index.js&apos;,</div><div class="line">    path:path.resolve(__dirname,&apos;dist&apos;),</div><div class="line">    publicPath:&apos;temp/&apos;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>index.html文件删掉原先的js，引入temp中的js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;./temp/index.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="9-Babel安装配置"><a href="#9-Babel安装配置" class="headerlink" title="9. Babel安装配置"></a>9. Babel安装配置</h3><p>在webpack中配置Babel需要先加入babel-loader，这里我们继续使用npm来进行安装，但是我们一般还需要支持es2015和React，所以要安装四个包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react</div></pre></td></tr></table></figure>
+<p>这里安装四个包的安装，这四个包不能省略。安装后你会在package.json里看到这些包的版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;devDependencies&quot;: &#123;</div><div class="line">  &quot;babel-core&quot;: &quot;^6.26.0&quot;,</div><div class="line">  &quot;babel-loader&quot;: &quot;^7.1.2&quot;,</div><div class="line">  &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</div><div class="line">  &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</div><div class="line">  &quot;webpack&quot;: &quot;^3.8.1&quot;,</div><div class="line">  &quot;webpack-dev-server&quot;: &quot;^2.9.3&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　</p>
+<h3 id="10-配置module"><a href="#10-配置module" class="headerlink" title="10. 配置module"></a>10. 配置module</h3><p>在安装完成后，可以到webpack.config.js里配置module，也就是配置我们常说的loader。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module:&#123;</div><div class="line">    rules:[</div><div class="line">        &#123;</div><div class="line">            test:/\.js$/,</div><div class="line">            exclude:/node_modules/,</div><div class="line">            loaders:&quot;babel-loader&quot;,</div><div class="line">            query:&#123;</div><div class="line">                presets:[&apos;es2015&apos;,&apos;react&apos;]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="11-编写React"><a href="#11-编写React" class="headerlink" title="11. 编写React"></a>11. 编写React</h3><p>webpack通过上边的步骤，基本已经配置完成了，这里我们写一个React文件来进行测试一下。在进行编写React文件前，要记得安装React和React-dom这两个包。</p>
+<p>安装React和React-dom</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save react  react-dom</div></pre></td></tr></table></figure>
+<p>安装完成后，我们改写app/index.js文件，把原来原生的JavaScript代码改成React代码。</p>
+<h6 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line"> </div><div class="line">ReactDOM.render(</div><div class="line">    &lt;div&gt;Hello React&lt;/div&gt;,</div><div class="line">    document.getElementById(&quot;app&quot;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>因为上边我们加了一个app的选择器，所以在index.html中增加一个div标签，并把id设置成app。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>都配置完了，我们可以用之前配置好的npm run server 命令进行预览了。如果在浏览器中看到了Hello React 这段文字，说明我们的配置成功了，以后就可以愉快的进行开发了。</p>
+<h3 id="可能出现的一些问题"><a href="#可能出现的一些问题" class="headerlink" title="可能出现的一些问题"></a>可能出现的一些问题</h3><h4 id="1-Module-build-failed"><a href="#1-Module-build-failed" class="headerlink" title="1. Module build failed"></a>1. Module build failed</h4><p>可能是安装的某个包和另一个包不适配，可以uninstall这个包然后重新install一个适配的版本，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm uninstall babel-loader</div><div class="line">npm install babel-loader@7.1.5</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/01/Javascript异步编程-Eventloop运行机制/" rel="next" title="Javascript异步编程 Eventloop运行机制">
+                <i class="fa fa-chevron-left"></i> Javascript异步编程 Eventloop运行机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg"
+               alt="QinChaoru" />
+          <p class="site-author-name" itemprop="name">QinChaoru</p>
+           
+              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个react项目：webpack一步一步构建"><span class="nav-number">1.</span> <span class="nav-text">创建一个react项目：webpack一步一步构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装webpack"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 安装webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置webpack-config-js"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 配置webpack.config.js</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#webpack-config-js"><span class="nav-number">1.0.2.0.0.1.</span> <span class="nav-text">webpack.config.js</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-新建index-html文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 新建index.html文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#index-html"><span class="nav-number">1.0.3.0.0.1.</span> <span class="nav-text">index.html</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建index-js文件"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 创建index.js文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#app-index-js文件"><span class="nav-number">1.0.4.0.0.1.</span> <span class="nav-text">/app/index.js文件</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-加入打包命令"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. 加入打包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-测试webpack配置"><span class="nav-number">1.0.6.</span> <span class="nav-text">6. 测试webpack配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-开发服务器配置"><span class="nav-number">1.0.7.</span> <span class="nav-text">7. 开发服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-自动刷新浏览器"><span class="nav-number">1.0.8.</span> <span class="nav-text">8. 自动刷新浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Babel安装配置"><span class="nav-number">1.0.9.</span> <span class="nav-text">9. Babel安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-配置module"><span class="nav-number">1.0.10.</span> <span class="nav-text">10. 配置module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-编写React"><span class="nav-number">1.0.11.</span> <span class="nav-text">11. 编写React</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#index-js"><span class="nav-number">1.0.11.0.0.1.</span> <span class="nav-text">index.js</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能出现的一些问题"><span class="nav-number">1.0.12.</span> <span class="nav-text">可能出现的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Module-build-failed"><span class="nav-number">1.0.12.1.</span> <span class="nav-text">1. Module build failed</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QinChaoru</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
