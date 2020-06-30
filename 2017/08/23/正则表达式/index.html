@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="正则表达式的介绍:1.可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.2.[a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母.3.[^a-z].匹配任何不属于a-z中的字符.4.[a-z&amp;amp;&amp;amp;[hij]].匹配h">
+<meta name="description" content="正则表达式的介绍: 可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.  常用规则 [a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母. [^a-z].匹配任何不属于a-z中的字符. [a-z&amp;amp;&amp;amp;[hij]]匹配">
 <meta name="keywords" content="学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式">
 <meta property="og:url" content="http://QQCR.github.io/2017/08/23/正则表达式/index.html">
 <meta property="og:site_name" content="QCR">
-<meta property="og:description" content="正则表达式的介绍:1.可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.2.[a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母.3.[^a-z].匹配任何不属于a-z中的字符.4.[a-z&amp;amp;&amp;amp;[hij]].匹配h">
+<meta property="og:description" content="正则表达式的介绍: 可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.  常用规则 [a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母. [^a-z].匹配任何不属于a-z中的字符. [a-z&amp;amp;&amp;amp;[hij]]匹配">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-23T08:48:03.000Z">
+<meta property="og:updated_time" content="2020-06-21T14:14:18.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则表达式的介绍:1.可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.2.[a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母.3.[^a-z].匹配任何不属于a-z中的字符.4.[a-z&amp;amp;&amp;amp;[hij]].匹配h">
+<meta name="twitter:description" content="正则表达式的介绍: 可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.  常用规则 [a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.如:[a-zA-Z]代表任意大小写字母. [^a-z].匹配任何不属于a-z中的字符. [a-z&amp;amp;&amp;amp;[hij]]匹配">
 
 
 
@@ -367,8 +367,56 @@
       
 
       
-        <p>正则表达式的介绍:<br>1.可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.<br>2.[a-z],任何含在[]中的内容都是一个字符,只匹配一个字符.<br>如:[a-zA-Z]代表任意大小写字母.<br>3.[^a-z].匹配任何不属于a-z中的字符.<br>4.[a-z&amp;&amp;[hij]].匹配hij任何一个(交集)<br>5.\s.匹配空字符(空格,tab,\n,换页,回车)<br>6.\S.匹配非空字符(和[^\s]一样)<br>7.\d.匹配数字,相当于[0-9]<br>8.\D.匹配非数字,相当于[^0-9],匹配中文,空格,换行符<br>9.\w.匹配词字符,相当于[a-zA-Z0-9],不包含中文,不能代表空格,换行符<br>10.\W.匹配非词字符,相当于[^\w],匹配一个中文字<br>逻辑运算符:<br>|:管道符.如:x|y表示x或y<br>():捕获组.(abc)|(xyz)表示abc或xyz<br>边界匹配符:<br>^:从头匹配<br>$:从尾匹配<br>\b:词界.<br>\B.非词界<br>量词:<br>量词描述一个模式吸收输入文本的方式.<br>*:前面字符或组匹配0或多个<br>+:前面字符或组匹配1或多个<br>?:前面字符或组匹配0或1个<br>{n}:前面字符或组的数量为n个<br>{n,}:前面字符或组的数量至少n个<br>{n,m}:前面字符或组数量至少n个,最多m个</p>
-<p>replace(/(^\s<em>)|(\s</em>$)/g, “”) 解释：<br>^表示字符串必须以后面的规则开头, 在这里就是说字符串必须以\s<em>开头.<br>\s 是空格的意思, </em> 表示有0个或多个<br>\s<em> 就是有0个或多个空格<br>(^\s</em>) 表示的就是以0个空格或者多个空格开头<br>| 表示或的意思, 也就是满足| 左边的也成立, 满足 | 右面的也成立.<br>\s<em>前面说过了<br>$ 的意思是字符串必须以前面的规则结尾<br>(\s</em>$) 的意思就是, 以0个空格或者多个空格结尾<br>/…/g 是正则表达式的属性, 表示全文匹配, 而不是找到一个就停止.<br>所以这个正则表达式替换的就是前导空格和后导空格<br>因为有前导空格, 就说明以0个或多个空格开头, 满足正则表达式中 | 前面的条件: (^\s<em>)<br>而如果有后导空格, 就说明以0个或多个空格结尾, 满足正则表达式中 | 后面的条件: (\s</em>$)</p>
+        <h4 id="正则表达式的介绍"><a href="#正则表达式的介绍" class="headerlink" title="正则表达式的介绍:"></a>正则表达式的介绍:</h4><ul>
+<li>可以使用字符作为一个通配符来代替除换行符(\n)之外的任意一个字符,例如: .at可以与”cat”,”sat”,”mat”等匹配.通常,这种通配符用于操作系统中文件名匹配.</li>
+</ul>
+<h4 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h4><ol>
+<li><code>[a-z]</code>,任何含在[]中的内容都是一个字符,只匹配一个字符.<br>如:<code>[a-zA-Z]</code>代表任意大小写字母.</li>
+<li><code>[^a-z]</code>.匹配任何不属于a-z中的字符.</li>
+<li><code>[a-z&amp;&amp;[hij]]</code>匹配hij任何一个(交集)</li>
+<li><code>\s</code>匹配空字符(空格,tab,\n,换页,回车)</li>
+<li><code>\S</code>匹配非空字符(和[^\s]一样)</li>
+<li><code>\d</code>匹配数字,相当于[0-9]</li>
+<li><code>\D</code>匹配非数字,相当于[^0-9],匹配中文,空格,换行符</li>
+<li><code>\w</code>匹配词字符,相当于[a-zA-Z0-9],不包含中文,不能代表空格,换行符</li>
+<li><code>\W</code>匹配非词字符,相当于[^\w],匹配一个中文字</li>
+</ol>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符:"></a>逻辑运算符:</h4><ul>
+<li><code>|</code>:管道符.如:<code>x|y</code>表示<code>x或y</code></li>
+<li><code>()</code>:捕获组.<code>(abc)|(xyz)</code>表示<code>abc或xyz</code></li>
+<li>边界匹配符:<ul>
+<li><code>^</code>:从头匹配</li>
+<li><code>$</code>:从尾匹配</li>
+<li><code>\b</code>:词界.</li>
+<li><code>\B</code>:非词界</li>
+</ul>
+</li>
+<li>量词:描述一个模式吸收输入文本的方式.<ul>
+<li><code>*</code>:前面字符或组匹配0或多个</li>
+<li><code>+</code>:前面字符或组匹配1或多个</li>
+<li><code>?</code>:前面字符或组匹配0或1个</li>
+<li><code>{n}</code>:前面字符或组的数量为n个</li>
+<li><code>{n,}</code>:前面字符或组的数量至少n个</li>
+<li><code>{n,m}</code>:前面字符或组数量至少n个,最多m个</li>
+</ul>
+</li>
+</ul>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p><code>replace(/(^\s*)|(\s*$)/g, &quot;&quot;)</code> 解释：</p>
+<ul>
+<li>^表示字符串必须以后面的规则开头, 在这里就是说字符串必须以\s*开头.</li>
+<li>\s 是空格的意思, * 表示有0个或多个</li>
+<li>\s* 就是有0个或多个空格</li>
+<li>(^\s*) 表示的就是以0个空格或者多个空格开头</li>
+<li>| 表示或的意思, 也就是满足| 左边的也成立, 满足 | 右面的也成立</li>
+<li>$ 的意思是字符串必须以前面的规则结尾</li>
+<li>(\s*$) 的意思就是, 以0个空格或者多个空格结尾</li>
+<li>/…/g 是正则表达式的属性, 表示全文匹配, 而不是找到一个就停止.</li>
+<li>所以这个正则表达式替换的就是前导空格和后导空格<ul>
+<li>因为有前导空格, 就说明以0个或多个空格开头, 满足正则表达式中 | 前面的条件: (^\s*)</li>
+<li>而如果有后导空格, 就说明以0个或多个空格结尾, 满足正则表达式中 | 后面的条件: (\s*$)</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -409,8 +457,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/24/js获取经纬度/" rel="prev" title="js获取经纬度">
-                js获取经纬度 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/24/电影-肖申克的救赎/" rel="prev" title="电影-肖申克的救赎">
+                电影-肖申克的救赎 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg"
@@ -479,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -501,7 +558,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -526,6 +583,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式的介绍"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用规则"><span class="nav-number">2.</span> <span class="nav-text">常用规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">3.</span> <span class="nav-text">逻辑运算符:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">4.</span> <span class="nav-text">举例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

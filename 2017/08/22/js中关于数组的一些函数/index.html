@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="map 方法作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）例子：使得数组中的每一项都乘以4var timesFour = oldArray.map(function(val){return val * 4;});  reduce方法作用：迭代数组，并且把它累计到一个值中例子：让数组中的所有值相加var array = [4,5,6,7,8];var sin">
+<meta name="description" content="map 方法 作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组） 例子：使得数组中的每一项都乘以4123var timesFour = oldArray.map(function(val)&amp;#123;  return val * 4;&amp;#125;);   reduce方法 作用：迭代数组，并且把它累计到一个值中 例子：让数组中的所有值相加12345var arr">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js中关于数组的一些函数">
 <meta property="og:url" content="http://QQCR.github.io/2017/08/22/js中关于数组的一些函数/index.html">
 <meta property="og:site_name" content="QCR">
-<meta property="og:description" content="map 方法作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）例子：使得数组中的每一项都乘以4var timesFour = oldArray.map(function(val){return val * 4;});  reduce方法作用：迭代数组，并且把它累计到一个值中例子：让数组中的所有值相加var array = [4,5,6,7,8];var sin">
+<meta property="og:description" content="map 方法 作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组） 例子：使得数组中的每一项都乘以4123var timesFour = oldArray.map(function(val)&amp;#123;  return val * 4;&amp;#125;);   reduce方法 作用：迭代数组，并且把它累计到一个值中 例子：让数组中的所有值相加12345var arr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-23T10:07:46.000Z">
+<meta property="og:updated_time" content="2020-06-21T13:27:29.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中关于数组的一些函数">
-<meta name="twitter:description" content="map 方法作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）例子：使得数组中的每一项都乘以4var timesFour = oldArray.map(function(val){return val * 4;});  reduce方法作用：迭代数组，并且把它累计到一个值中例子：让数组中的所有值相加var array = [4,5,6,7,8];var sin">
+<meta name="twitter:description" content="map 方法 作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组） 例子：使得数组中的每一项都乘以4123var timesFour = oldArray.map(function(val)&amp;#123;  return val * 4;&amp;#125;);   reduce方法 作用：迭代数组，并且把它累计到一个值中 例子：让数组中的所有值相加12345var arr">
 
 
 
@@ -367,24 +367,44 @@
       
 
       
-        <ol>
-<li><p>map 方法<br>作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）<br>例子：使得数组中的每一项都乘以4<br>var timesFour = oldArray.map(function(val){<br>return val * 4;<br>});</p>
+        <h4 id="map-方法"><a href="#map-方法" class="headerlink" title="map 方法"></a>map 方法</h4><ul>
+<li>作用：迭代数组中的每一个元素，处理每一个元素，并且返回一个新的数组（不会改变原始数组）</li>
+<li>例子：使得数组中的每一项都乘以4<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var timesFour = oldArray.map(function(val)&#123;</div><div class="line">  return val * 4;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
-<li><p>reduce方法<br>作用：迭代数组，并且把它累计到一个值中<br>例子：让数组中的所有值相加<br>var array = [4,5,6,7,8];<br>var singleVal = 0;<br>singleVal = array.reduce(function(previousVal,currentVal){<br>return previousVal + currentVal;<br>});<br>结果：30</p>
+</ul>
+<h4 id="reduce方法"><a href="#reduce方法" class="headerlink" title="reduce方法"></a>reduce方法</h4><ul>
+<li>作用：迭代数组，并且把它累计到一个值中</li>
+<li>例子：让数组中的所有值相加<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var array = [4,5,6,7,8];</div><div class="line">var singleVal = 0;</div><div class="line">singleVal = array.reduce(function(previousVal,currentVal)&#123;</div><div class="line">  return previousVal + currentVal;</div><div class="line">&#125;);   //结果：30</div></pre></td></tr></table></figure>
 </li>
-<li><p>filter方法<br>作用：迭代一个数组，并且按给出的条件过滤出符合的元素，回调函数返回 true 的项会保留在数组中，返回 false 的项会被过滤出数组。<br>  filter 不会改变原数组。<br>例子：移除数组中值等于5的项<br>array = array.filter(function(val) {<br>return val !== 5;<br>});</p>
+</ul>
+<h4 id="filter方法"><a href="#filter方法" class="headerlink" title="filter方法"></a>filter方法</h4><ul>
+<li>作用：迭代一个数组，并且按给出的条件过滤出符合的元素，回调函数返回 <code>true</code> 的项会保留在数组中，返回 <code>false</code> 的项会被过滤出数组。(<code>filter</code> 不会改变原数组。)</li>
+<li>例子：移除数组中值等于5的项<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array = array.filter(function(val) &#123;</div><div class="line">  return val !== 5;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
-<li><p>sort方法<br>作用：按字母顺序或数字顺序对数组中的元素进行排序，改变原数组，返回被排序后的数组。<br>  sort 可以把比较函数作为参数传入。比较函数有返回值，当 a 小于 b，返回一个负数；当 a 大于 b ，返回一个正数；相等时返回0。如果没有传入比较函数，它将把值全部转成字符串，并按照字母顺序进行排序。<br>例子：从小到大排序<br>var array = [1, 12, 21, 2];<br>array.sort(function(a, b) {<br>return a - b;<br>});</p>
+</ul>
+<h4 id="sort方法"><a href="#sort方法" class="headerlink" title="sort方法"></a>sort方法</h4><ul>
+<li>作用：按字母顺序或数字顺序对数组中的元素进行排序，改变原数组，返回被排序后的数组。<br>   sort 可以把比较函数作为参数传入。比较函数有返回值，当 a 小于 b，返回一个负数；当 a 大于 b ，返回一个正数；相等时返回0。如果没有传入比较函数，它将把值全部转成字符串，并按照字母顺序进行排序。</li>
+<li>例子：从小到大排序<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var array = [1, 12, 21, 2];</div><div class="line">array.sort(function(a, b) &#123;</div><div class="line">  return a - b;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
-<li><p>reverse方法<br>作用：翻转数组<br>例子：<br>var myArray = [1, 2, 3];<br>myArray.reverse();<br>结果:[3，2，1]</p>
+</ul>
+<h4 id="reverse方法"><a href="#reverse方法" class="headerlink" title="reverse方法"></a>reverse方法</h4><ul>
+<li>作用：翻转数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var myArray = [1, 2, 3];</div><div class="line">myArray.reverse();   //结果:[3，2，1]</div></pre></td></tr></table></figure>
 </li>
-<li><p>concat方法<br>作用：把两个数组的内容合并到一个数组中。参数是一个数组。<br>例子：<br>newArray = oldArray.concat(otherArray);</p>
+</ul>
+<h4 id="concat方法"><a href="#concat方法" class="headerlink" title="concat方法"></a>concat方法</h4><ul>
+<li>作用：把两个数组的内容合并到一个数组中。参数是一个数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">newArray = oldArray.concat(otherArray);</div></pre></td></tr></table></figure>
 </li>
-<li><p>split方法：字符串转数组<br>作用：按指定分隔符将字符串分割为数组。参数：分隔符<br>例子：var array = string.split(‘s’);<br>把字符串分割成array：array = string.split(“ “);</p>
-</li>
-<li><p>join方法：数组转字符串<br>作用：把数组中的每一个元素用指定的连接符连接起来<br>例子：var salad = veggies.join(“ and “);<br>数组转字符串：joinedString = joinMe.join(“ “);</p>
-</li>
-</ol>
+</ul>
+<h4 id="split方法：字符串转数组"><a href="#split方法：字符串转数组" class="headerlink" title="split方法：字符串转数组"></a>split方法：字符串转数组</h4><ul>
+<li>作用：按指定分隔符将字符串分割为数组。参数：分隔符</li>
+<li>例子：<code>var array = string.split(&#39;s&#39;);</code></li>
+<li>把字符串分割成array：<code>array = string.split(&quot; &quot;);</code></li>
+</ul>
+<h4 id="join方法：数组转字符串"><a href="#join方法：数组转字符串" class="headerlink" title="join方法：数组转字符串"></a>join方法：数组转字符串</h4><ul>
+<li>作用：把数组中的每一个元素用指定的连接符连接起来</li>
+<li>例子：<code>var salad = veggies.join(&quot; and &quot;);</code></li>
+<li>数组转字符串：<code>joinedString = joinMe.join(&quot; &quot;);</code></li>
+</ul>
 
       
     </div>
@@ -479,8 +499,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg"
@@ -495,7 +524,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -517,7 +546,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -542,6 +571,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-方法"><span class="nav-number">1.</span> <span class="nav-text">map 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce方法"><span class="nav-number">2.</span> <span class="nav-text">reduce方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter方法"><span class="nav-number">3.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort方法"><span class="nav-number">4.</span> <span class="nav-text">sort方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse方法"><span class="nav-number">5.</span> <span class="nav-text">reverse方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat方法"><span class="nav-number">6.</span> <span class="nav-text">concat方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split方法：字符串转数组"><span class="nav-number">7.</span> <span class="nav-text">split方法：字符串转数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join方法：数组转字符串"><span class="nav-number">8.</span> <span class="nav-text">join方法：数组转字符串</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

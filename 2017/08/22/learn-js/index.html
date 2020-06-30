@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="和数组有关的4个函数：pop()：移除最后一个push(xxx)：加入到最后一个shift()：移除第一个unshift()：加入到第一个 全局变量：如果在所有函数以外定义全局变量 用var如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先 比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)： 1   ==  1    // true">
+<meta name="description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="learn js">
 <meta property="og:url" content="http://QQCR.github.io/2017/08/22/learn-js/index.html">
 <meta property="og:site_name" content="QCR">
-<meta property="og:description" content="和数组有关的4个函数：pop()：移除最后一个push(xxx)：加入到最后一个shift()：移除第一个unshift()：加入到第一个 全局变量：如果在所有函数以外定义全局变量 用var如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先 比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)： 1   ==  1    // true">
+<meta property="og:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-22T09:25:00.000Z">
+<meta property="og:updated_time" content="2020-06-21T13:21:40.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="learn js">
-<meta name="twitter:description" content="和数组有关的4个函数：pop()：移除最后一个push(xxx)：加入到最后一个shift()：移除第一个unshift()：加入到第一个 全局变量：如果在所有函数以外定义全局变量 用var如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先 比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)： 1   ==  1    // true">
+<meta name="twitter:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
 
 
 
@@ -367,13 +367,21 @@
       
 
       
-        <p>和数组有关的4个函数：<br>pop()：移除最后一个<br>push(xxx)：加入到最后一个<br>shift()：移除第一个<br>unshift()：加入到第一个</p>
-<p>全局变量：<br>如果在所有函数以外定义全局变量 用var<br>如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var</p>
-<p>如果局部变量和全局变量名称相同 局部变量优先</p>
-<p>比较大小：<br> 相等(转换类型 &gt;和&lt;也符合)：<br> 1   ==  1    // true<br> 1   ==  2    // false<br> 1   == ‘1’   // true<br> “3”  ==  3    // true</p>
-<p> 1 != 2      // true<br> 1 != “1”    // false<br> 1 != ‘1’    // false<br> 1 != true   // false<br> 0 != false  // false</p>
-<p> 严格相等：<br> 3 === 3   // true<br> 3 === ‘3’ // false<br> 3 !== 3   // false<br> 3 !== ‘3’ // true<br> 4 !== 3   // true</p>
-<p>记住undefined，是一个关键字，而不是一个字符串</p>
+        <h4 id="和数组有关的4个函数："><a href="#和数组有关的4个函数：" class="headerlink" title="和数组有关的4个函数："></a>和数组有关的4个函数：</h4><ul>
+<li>pop()：移除最后一个</li>
+<li>push(xxx)：加入到最后一个</li>
+<li>shift()：移除第一个</li>
+<li>unshift()：加入到第一个</li>
+</ul>
+<h4 id="全局变量："><a href="#全局变量：" class="headerlink" title="全局变量："></a>全局变量：</h4><ul>
+<li>如果在所有函数以外定义全局变量 用var</li>
+<li>如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var</li>
+<li>如果局部变量和全局变量名称相同 局部变量优先</li>
+</ul>
+<h4 id="比较大小："><a href="#比较大小：" class="headerlink" title="比较大小："></a>比较大小：</h4><ul>
+<li>相等(转换类型 &gt;和&lt;也符合)：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1   ==  1    // true</div><div class="line">1   ==  2    // false</div><div class="line">1   == &apos;1&apos;   // true</div><div class="line">&quot;3&quot;  ==  3    // true</div><div class="line"></div><div class="line">1 != 2      // true</div><div class="line">1 != &quot;1&quot;    // false</div><div class="line">1 != &apos;1&apos;    // false</div><div class="line">1 != true   // false</div><div class="line">0 != false  // false</div><div class="line"></div><div class="line">//严格相等：</div><div class="line">3 === 3   // true</div><div class="line">3 === &apos;3&apos; // false</div><div class="line">3 !== 3   // false</div><div class="line">3 !== &apos;3&apos; // true</div><div class="line">4 !== 3   // true</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -414,8 +422,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/22/learn-js-object/" rel="prev" title="learn-js-object">
-                learn-js-object <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/22/js读取对象/" rel="prev" title="js读取对象">
+                js读取对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -468,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg"
@@ -484,7 +501,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,7 +523,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -531,6 +548,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#和数组有关的4个函数："><span class="nav-number">1.</span> <span class="nav-text">和数组有关的4个函数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量："><span class="nav-number">2.</span> <span class="nav-text">全局变量：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较大小："><span class="nav-number">3.</span> <span class="nav-text">比较大小：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

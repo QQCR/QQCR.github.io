@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Antlr," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Antlr–Another Tool for Language Recognition可以根据用户编写的g4规则自动生成相关的java文件，提供api供用户调用，使得用户不需要关心规则文档的解析过程，直接通过相应的api即可完成数据的生成。 简介功能 利用语法的描述（编写antlr的语法文件）可以自动化地生成指定编程语言的识别器，编译器以及相关解释器的框架 （能写出程序的程序） 可以通过断言来解决">
+<meta name="keywords" content="Antlr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Antlr 介绍">
+<meta property="og:url" content="http://QQCR.github.io/2019/06/23/Antlr-介绍/index.html">
+<meta property="og:site_name" content="QCR">
+<meta property="og:description" content="Antlr–Another Tool for Language Recognition可以根据用户编写的g4规则自动生成相关的java文件，提供api供用户调用，使得用户不需要关心规则文档的解析过程，直接通过相应的api即可完成数据的生成。 简介功能 利用语法的描述（编写antlr的语法文件）可以自动化地生成指定编程语言的识别器，编译器以及相关解释器的框架 （能写出程序的程序） 可以通过断言来解决">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/9884616F5D4547FCBBE593CB6B5F75A6/156">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/DE96E7F91EFF4690BD69BC6E20640DF6/177">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/AD9FE026C45645338C19F7FE78657F43/193">
+<meta property="og:updated_time" content="2020-06-23T06:33:21.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Antlr 介绍">
+<meta name="twitter:description" content="Antlr–Another Tool for Language Recognition可以根据用户编写的g4规则自动生成相关的java文件，提供api供用户调用，使得用户不需要关心规则文档的解析过程，直接通过相应的api即可完成数据的生成。 简介功能 利用语法的描述（编写antlr的语法文件）可以自动化地生成指定编程语言的识别器，编译器以及相关解释器的框架 （能写出程序的程序） 可以通过断言来解决">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/9884616F5D4547FCBBE593CB6B5F75A6/156">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://QQCR.github.io/2019/06/23/Antlr-介绍/"/>
+
+
+
+
+
+  <title>Antlr 介绍 | QCR</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QCR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不知道会写点什么的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2019/06/23/Antlr-介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QinChaoru">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Antlr 介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T14:29:55+08:00">
+                2019-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Antlr–Another-Tool-for-Language-Recognition"><a href="#Antlr–Another-Tool-for-Language-Recognition" class="headerlink" title="Antlr–Another Tool for Language Recognition"></a>Antlr–Another Tool for Language Recognition</h1><p>可以根据用户编写的g4规则自动生成相关的java文件，提供api供用户调用，使得用户不需要关心规则文档的解析过程，直接通过相应的api即可完成数据的生成。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
+<li>利用语法的描述（编写antlr的语法文件）可以自动化地生成指定编程语言的识别器，编译器以及相关解释器的框架 （能写出程序的程序）</li>
+<li>可以通过断言来解决和识别到形式化表示中的冲突</li>
+<li>可以支持相关的动作以及返回运行结果</li>
+<li>在目标平台上自由使用</li>
+</ol>
+<h4 id="词法分析器-lexer"><a href="#词法分析器-lexer" class="headerlink" title="词法分析器 lexer"></a>词法分析器 lexer</h4><ol>
+<li>功能：翻译物理机器无法识别分辨的字符流，将它们转换为一系列的字符组（生成的tokens），涵盖了符号，关键字和标识操作等。</li>
+<li>只做翻译工作，不理解各个字符的意思。</li>
+</ol>
+<h4 id="语法分析器-parser"><a href="#语法分析器-parser" class="headerlink" title="语法分析器 parser"></a>语法分析器 parser</h4><ol>
+<li>功能：获取到lexer的结果，即所有的token，将其转换为目标语言语法中允许的格式。（是否满足语法规则中的rule）</li>
+<li>对于抽象树的情况，如果匹配之后是合格的，就生成相应的语法抽象树，识别出各种语法成分。</li>
+<li>lexer 用于分析字符，parser用于分析token序列，都是分析器</li>
+</ol>
+<h4 id="抽象语法树"><a href="#抽象语法树" class="headerlink" title="抽象语法树"></a>抽象语法树</h4><ol>
+<li>功能：在语法分析的同时做进一步处理</li>
+<li>建立：在原来文法的基础上加入建树语法</li>
+<li>树形结构易于遍历和处理。对于需要多次处理的翻译器来说，不需要多次调用解析器去解析，只需要高效地遍历语法树多次</li>
+</ol>
+<h4 id="树分析器"><a href="#树分析器" class="headerlink" title="树分析器"></a>树分析器</h4><ol>
+<li>树分析器的处理对象是由结点构成的并且还是二维的抽象语法树，而语法分析器处理的则是由记号组成的记号流。</li>
+<li>树分析器可以实现在遍历语法树时完成相关的语义处理，从而既完成了对源程序的语义分析又可以生成相应的源码。</li>
+</ol>
+<h6 id="过程图示"><a href="#过程图示" class="headerlink" title="过程图示"></a>过程图示</h6><p><img src="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/9884616F5D4547FCBBE593CB6B5F75A6/156" alt="image"></p>
+<h6 id="解析树的应用图示"><a href="#解析树的应用图示" class="headerlink" title="解析树的应用图示"></a>解析树的应用图示</h6><p><img src="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/DE96E7F91EFF4690BD69BC6E20640DF6/177" alt="image"></p>
+<ol>
+<li>antlr为每个rule生成一个context对象，它会记录识别时的所有信息。</li>
+<li>两种遍历机制：Listener–全自动化的，深度优先遍历，我们只需要处理各种事件；Visitor–可控的，我们可以自行决定是否显示地调用子结点的visit方法。</li>
+</ol>
+<h6 id="遍历过程和api"><a href="#遍历过程和api" class="headerlink" title="遍历过程和api"></a>遍历过程和api</h6><p><img src="https://note.youdao.com/yws/public/resource/758f382fb6fc1207b3af94011d0209cd/xmlnote/AD9FE026C45645338C19F7FE78657F43/193" alt="image"></p>
+<h4 id="语法规则：g4文件"><a href="#语法规则：g4文件" class="headerlink" title="语法规则：g4文件"></a>语法规则：g4文件</h4><ol>
+<li>文件结构：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grammar Name</td>
+<td>combined (lexer和parser)</td>
+</tr>
+<tr>
+<td>options{…}</td>
+<td>superclass,language,tokenVocab,TokenLabelType</td>
+</tr>
+<tr>
+<td>import…;</td>
+<td>parser or lexer file</td>
+</tr>
+<tr>
+<td>tokens{…}</td>
+<td></td>
+</tr>
+<tr>
+<td>@actionName{…}</td>
+<td>@header,@member,@lexer::member,@parser::member</td>
+</tr>
+<tr>
+<td>&lt;<rule1>&gt;…&lt;<rule2>&gt;</rule2></rule1></td>
+<td>rule defining 小写字母开头</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>常见语法规则</li>
+</ol>
+<ul>
+<li>产生式左边：产生式右边—a:exp的形式表示规则，a是要定义的一个语句或者词，如果a是一个语句，则以小写字母开头，如果a是一个词，则以大写字母开头；exp是对a的具体定义。</li>
+<li>字符串：单引号</li>
+<li>| 或</li>
+<li>()+ 1或多</li>
+<li>()* 0或多</li>
+<li>()? 0或1</li>
+<li>{} 动作。当所跟的符号匹配后进行这个操作</li>
+<li>option{} 特殊的动作，内部可以设置参数</li>
+<li>program:statement+ 整体语法规则的起始点</li>
+<li>终结符：var变量 int整数 string字符串 ws空白字符</li>
+<li>非终结符：program程序体 statement语句 expression表达式 multExpr乘法因子表达式 atom因子</li>
+<li>多个规则匹配，声明在词法文件最前面的规则生效</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Antlr/" rel="tag"># Antlr</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/创建随机颜色的函数/" rel="next" title="创建随机颜色的函数">
+                <i class="fa fa-chevron-left"></i> 创建随机颜色的函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/23/Antlr-Eclipse-环境搭建/" rel="prev" title="Antlr Eclipse 环境搭建">
+                Antlr Eclipse 环境搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1503978108&amp;di=f0d57b4a8f99247de7f9bcf858936850&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_3_1903796321D1889489590_23.jpg"
+               alt="QinChaoru" />
+          <p class="site-author-name" itemprop="name">QinChaoru</p>
+           
+              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Antlr–Another-Tool-for-Language-Recognition"><span class="nav-number">1.</span> <span class="nav-text">Antlr–Another Tool for Language Recognition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#功能"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#词法分析器-lexer"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">词法分析器 lexer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法分析器-parser"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">语法分析器 parser</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象语法树"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">抽象语法树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树分析器"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">树分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#过程图示"><span class="nav-number">1.0.1.5.0.1.</span> <span class="nav-text">过程图示</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解析树的应用图示"><span class="nav-number">1.0.1.5.0.2.</span> <span class="nav-text">解析树的应用图示</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#遍历过程和api"><span class="nav-number">1.0.1.5.0.3.</span> <span class="nav-text">遍历过程和api</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法规则：g4文件"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">语法规则：g4文件</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QinChaoru</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
