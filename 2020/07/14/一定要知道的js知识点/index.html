@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…  2. 基本类型和引用类型的区别   基本类型 引用类型     值是不可变的 值是可变的   比较是值的比较 比较是引用的比较   变量存放在栈内存 值是保存在对内存中的对象    3.">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一定要知道的js知识点">
+<meta property="og:url" content="http://QQCR.github.io/2020/07/14/一定要知道的js知识点/index.html">
+<meta property="og:site_name" content="QQCR">
+<meta property="og:description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…  2. 基本类型和引用类型的区别   基本类型 引用类型     值是不可变的 值是可变的   比较是值的比较 比较是引用的比较   变量存放在栈内存 值是保存在对内存中的对象    3.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-07-20T14:56:08.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一定要知道的js知识点">
+<meta name="twitter:description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…  2. 基本类型和引用类型的区别   基本类型 引用类型     值是不可变的 值是可变的   比较是值的比较 比较是引用的比较   变量存放在栈内存 值是保存在对内存中的对象    3.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://QQCR.github.io/2020/07/14/一定要知道的js知识点/"/>
+
+
+
+
+
+  <title>一定要知道的js知识点 | QQCR</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QQCR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不知道会写点什么的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2020/07/14/一定要知道的js知识点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QinChaoru">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://photo.16pic.com/00/53/96/16pic_5396514_b.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QQCR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一定要知道的js知识点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T23:51:03+08:00">
+                2020-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一-变量和类型"><a href="#一-变量和类型" class="headerlink" title="一. 变量和类型"></a>一. 变量和类型</h3><h4 id="1-有哪些数据类型"><a href="#1-有哪些数据类型" class="headerlink" title="1. 有哪些数据类型"></a>1. 有哪些数据类型</h4><ul>
+<li>七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object</li>
+<li>引用类型即对象类型，Object、Array、Date…</li>
+</ul>
+<h4 id="2-基本类型和引用类型的区别"><a href="#2-基本类型和引用类型的区别" class="headerlink" title="2. 基本类型和引用类型的区别"></a>2. 基本类型和引用类型的区别</h4><table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>引用类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>值是不可变的</td>
+<td>值是可变的</td>
+</tr>
+<tr>
+<td>比较是值的比较</td>
+<td>比较是引用的比较</td>
+</tr>
+<tr>
+<td>变量存放在栈内存</td>
+<td>值是保存在对内存中的对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-null和undefined的区别"><a href="#3-null和undefined的区别" class="headerlink" title="3. null和undefined的区别"></a>3. null和undefined的区别</h4><ul>
+<li>null表示“没有对象”，即该处不应该有值<ul>
+<li>作为函数参数，表示该函数的参数不是对象</li>
+<li>作为对象原型链的终点</li>
+</ul>
+</li>
+<li>undefined表示“缺少值”，就是此处应该有一个值，但是还没有定义<ul>
+<li>变量被声明了，但是还没有赋值</li>
+<li>调用函数时候，应该提供的参数没有提供，这个参数就是undefined</li>
+<li>对象没有赋值的属性</li>
+<li>函数没有返回值时候，默认返回undefined</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-和-的区别"><a href="#4-和-的区别" class="headerlink" title="4. ==和===的区别"></a>4. ==和===的区别</h4><ul>
+<li>==：值的比较（隐式类型转换）</li>
+<li>===： 不仅进行值的比较，还进行数据类型的比较</li>
+</ul>
+<h4 id="5-判断数据类型的方式"><a href="#5-判断数据类型的方式" class="headerlink" title="5. 判断数据类型的方式"></a>5. 判断数据类型的方式</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>typeof</th>
+<th>instanceof</th>
+<th>constructor</th>
+<th>Object.prototype.toString.call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回值</td>
+<td>一个表示数据类型的字符串</td>
+<td>是不是继承关系的boolean</td>
+<td>字符串</td>
+<td>[object xxx]</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>使用简单</td>
+<td>能检测出引用类型</td>
+<td>基本能检测出所有类型（除了null、undefined）</td>
+<td>检测出所有类型</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>只能检测基本类型（null是object）</td>
+<td>不能检测基本类型，不能跨iframe</td>
+<td>容易被修改，不能跨iframe</td>
+<td>ie6下，undefined和null是object</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-判断是不是数组的方式"><a href="#6-判断是不是数组的方式" class="headerlink" title="6. 判断是不是数组的方式"></a>6. 判断是不是数组的方式</h4><ul>
+<li>两种不准确的： <code>instanceof</code>和<code>constructor</code></li>
+<li>两种准确的：<code>Array.isArray()</code>和<code>Object.prototypt.toString()</code></li>
+</ul>
+<h4 id="7-会被判断为true的类型-amp-falsy类型"><a href="#7-会被判断为true的类型-amp-falsy类型" class="headerlink" title="7. 会被判断为true的类型 &amp; falsy类型"></a>7. 会被判断为true的类型 &amp; falsy类型</h4><p>以下7种情况会被判断为false</p>
+<ul>
+<li>false关键字</li>
+<li>0</li>
+<li>0n（bigInt)</li>
+<li>空字符串</li>
+<li>null</li>
+<li>undefined</li>
+<li>NaN</li>
+</ul>
+<p>其他都会被判断会true</p>
+<h4 id="8-怎么把“2”变为2"><a href="#8-怎么把“2”变为2" class="headerlink" title="8. 怎么把“2”变为2"></a>8. 怎么把“2”变为2</h4><ul>
+<li>parseInt</li>
+<li>Number(“2”)</li>
+<li>/ * - </li>
+</ul>
+<h3 id="二-原型和原型链"><a href="#二-原型和原型链" class="headerlink" title="二. 原型和原型链"></a>二. 原型和原型链</h3><h4 id="9-原型和原型链"><a href="#9-原型和原型链" class="headerlink" title="9. 原型和原型链"></a>9. 原型和原型链</h4><h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><p>构造函数、原型和实例三者之间：</p>
+<ol>
+<li>创建一个函数的时候，会给这个函数创建一个prototype属性，这个属性指向函数的原型对象</li>
+<li>所有原型对象会自动获得一个constructor属性，这是一个指向prototype属性所在函数的指针</li>
+<li>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针，指向构造函数的原型对象</li>
+</ol>
+<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><p>当试图得到一个对象的某个属性时候，如果这个对象本身没有这个属性，那么会去它的 <code>__proto__</code>中去寻找，如果 <code>obj.__proto__</code>也没有，会在<code>obj.__proto__.__proto__</code>中去找，直到<code>Object</code>和<code>Null</code></p>
+<h4 id="10-实现继承的方式"><a href="#10-实现继承的方式" class="headerlink" title="10. 实现继承的方式"></a>10. 实现继承的方式</h4><h5 id="原型链-1"><a href="#原型链-1" class="headerlink" title="原型链"></a>原型链</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SubType.prototype = new SuperType();</div></pre></td></tr></table></figure>
+<p>缺点：引用类型的值的原型的问题、不能向超类型的构造函数中传递参数</p>
+<h5 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SuperType.call(this) //构造函数里</div></pre></td></tr></table></figure>
+<p>缺点：方法都在构造函数中定义，无法函数复用，方法不能传</p>
+<h5 id="组合继承：原型链-构造函数-最常用"><a href="#组合继承：原型链-构造函数-最常用" class="headerlink" title="组合继承：原型链 + 构造函数 最常用"></a>组合继承：原型链 + 构造函数 最常用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SuperType.call(this.name)  //构造函数里 继承属性</div><div class="line">SubType.prototype = new SuperType();  //继承方法</div></pre></td></tr></table></figure>
+<p>缺点：调用了两次超类型构造函数</p>
+<h5 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h5><p>基于已有的对象创建新对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.create()  //规范了原型式继承</div></pre></td></tr></table></figure></p>
+<p>缺点：引用类型的值的属性的共享问题</p>
+<h5 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h5><p>创建一个仅用于封装继承过程的函数，以某种方式增强对象<br>缺点：不能函数复用</p>
+<h5 id="寄生组合式继承-最理想"><a href="#寄生组合式继承-最理想" class="headerlink" title="寄生组合式继承  最理想"></a>寄生组合式继承  最理想</h5><p>构造函数：继承属性<br>原型链的混成形式继承方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function inheritPrototype(subType, superType) &#123;</div><div class="line">  var prototype = Object.create(superType.prototype) // 创建超类型的副本</div><div class="line">  prototype.constructor = subType;  // 为副本添加constructor</div><div class="line">  subType.prototype = prototype;  // 将副本赋给子类型的原型</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>优点：只调用一次SuperType构造函数，原型链保持不变</p>
+<h4 id="11-new操作符做了什么"><a href="#11-new操作符做了什么" class="headerlink" title="11. new操作符做了什么"></a>11. new操作符做了什么</h4><ol>
+<li>创建一个新对象（object）</li>
+<li>新对象隐式原型链接到构造函数显式原型（<strong>proto</strong>指向prototype）</li>
+<li>执行构造函数并将构造函数作用域指向新对象（this指向新对象）</li>
+<li>返回新对象</li>
+</ol>
+<h3 id="三-作用域和闭包"><a href="#三-作用域和闭包" class="headerlink" title="三. 作用域和闭包"></a>三. 作用域和闭包</h3><h4 id="12-作用域"><a href="#12-作用域" class="headerlink" title="12. 作用域"></a>12. 作用域</h4><h4 id="13-函数声明提升和变量声明提升"><a href="#13-函数声明提升和变量声明提升" class="headerlink" title="13. 函数声明提升和变量声明提升"></a>13. 函数声明提升和变量声明提升</h4><h4 id="14-this的指向"><a href="#14-this的指向" class="headerlink" title="14. this的指向"></a>14. this的指向</h4><h4 id="15-call和apply的区别"><a href="#15-call和apply的区别" class="headerlink" title="15. call和apply的区别"></a>15. call和apply的区别</h4><h4 id="16-闭包"><a href="#16-闭包" class="headerlink" title="16. 闭包"></a>16. 闭包</h4><h4 id="17-堆栈溢出和尾递归"><a href="#17-堆栈溢出和尾递归" class="headerlink" title="17. 堆栈溢出和尾递归"></a>17. 堆栈溢出和尾递归</h4><h4 id="18-内存泄漏"><a href="#18-内存泄漏" class="headerlink" title="18. 内存泄漏"></a>18. 内存泄漏</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/01/Sorry-we-missed-you/" rel="next" title="Sorry we missed you">
+                <i class="fa fa-chevron-left"></i> Sorry we missed you
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/16/算法：排序算法/" rel="prev" title="算法：排序算法">
+                算法：排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://photo.16pic.com/00/53/96/16pic_5396514_b.jpg"
+               alt="QinChaoru" />
+          <p class="site-author-name" itemprop="name">QinChaoru</p>
+           
+              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-变量和类型"><span class="nav-number">1.</span> <span class="nav-text">一. 变量和类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-有哪些数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">1. 有哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本类型和引用类型的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 基本类型和引用类型的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-null和undefined的区别"><span class="nav-number">1.3.</span> <span class="nav-text">3. null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-和-的区别"><span class="nav-number">1.4.</span> <span class="nav-text">4. ==和===的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-判断数据类型的方式"><span class="nav-number">1.5.</span> <span class="nav-text">5. 判断数据类型的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-判断是不是数组的方式"><span class="nav-number">1.6.</span> <span class="nav-text">6. 判断是不是数组的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-会被判断为true的类型-amp-falsy类型"><span class="nav-number">1.7.</span> <span class="nav-text">7. 会被判断为true的类型 & falsy类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-怎么把“2”变为2"><span class="nav-number">1.8.</span> <span class="nav-text">8. 怎么把“2”变为2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-原型和原型链"><span class="nav-number">2.</span> <span class="nav-text">二. 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-原型和原型链"><span class="nav-number">2.1.</span> <span class="nav-text">9. 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型"><span class="nav-number">2.1.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链"><span class="nav-number">2.1.2.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-实现继承的方式"><span class="nav-number">2.2.</span> <span class="nav-text">10. 实现继承的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#借用构造函数"><span class="nav-number">2.2.2.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组合继承：原型链-构造函数-最常用"><span class="nav-number">2.2.3.</span> <span class="nav-text">组合继承：原型链 + 构造函数 最常用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型式继承"><span class="nav-number">2.2.4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生式继承"><span class="nav-number">2.2.5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生组合式继承-最理想"><span class="nav-number">2.2.6.</span> <span class="nav-text">寄生组合式继承  最理想</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-new操作符做了什么"><span class="nav-number">2.3.</span> <span class="nav-text">11. new操作符做了什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-作用域和闭包"><span class="nav-number">3.</span> <span class="nav-text">三. 作用域和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-作用域"><span class="nav-number">3.1.</span> <span class="nav-text">12. 作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-函数声明提升和变量声明提升"><span class="nav-number">3.2.</span> <span class="nav-text">13. 函数声明提升和变量声明提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-this的指向"><span class="nav-number">3.3.</span> <span class="nav-text">14. this的指向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-call和apply的区别"><span class="nav-number">3.4.</span> <span class="nav-text">15. call和apply的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-闭包"><span class="nav-number">3.5.</span> <span class="nav-text">16. 闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-堆栈溢出和尾递归"><span class="nav-number">3.6.</span> <span class="nav-text">17. 堆栈溢出和尾递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-内存泄漏"><span class="nav-number">3.7.</span> <span class="nav-text">18. 内存泄漏</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QinChaoru</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法和数据结构," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="二叉树每个节点最多有两个子树的树结构，左子树和右子树1234567class TreeNode &amp;#123;  constructor(val) &amp;#123;    this.val = val;    this.left = null;    this.right = null;  &amp;#125;&amp;#125; 二叉树遍历 广度优先遍历 使用队列 深度优先遍历 使用栈（前序、中序、后序）  广度优先">
+<meta name="keywords" content="算法和数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构：二叉树">
+<meta property="og:url" content="http://QQCR.github.io/2020/07/21/数据结构：二叉树/index.html">
+<meta property="og:site_name" content="QQCR">
+<meta property="og:description" content="二叉树每个节点最多有两个子树的树结构，左子树和右子树1234567class TreeNode &amp;#123;  constructor(val) &amp;#123;    this.val = val;    this.left = null;    this.right = null;  &amp;#125;&amp;#125; 二叉树遍历 广度优先遍历 使用队列 深度优先遍历 使用栈（前序、中序、后序）  广度优先">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-07-26T02:46:38.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构：二叉树">
+<meta name="twitter:description" content="二叉树每个节点最多有两个子树的树结构，左子树和右子树1234567class TreeNode &amp;#123;  constructor(val) &amp;#123;    this.val = val;    this.left = null;    this.right = null;  &amp;#125;&amp;#125; 二叉树遍历 广度优先遍历 使用队列 深度优先遍历 使用栈（前序、中序、后序）  广度优先">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://QQCR.github.io/2020/07/21/数据结构：二叉树/"/>
+
+
+
+
+
+  <title>数据结构：二叉树 | QQCR</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QQCR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不知道会写点什么的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2020/07/21/数据结构：二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QinChaoru">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://photo.16pic.com/00/53/96/16pic_5396514_b.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QQCR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构：二叉树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-21T00:12:46+08:00">
+                2020-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>每个节点最多有两个子树的树结构，左子树和右子树<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class TreeNode &#123;</div><div class="line">  constructor(val) &#123;</div><div class="line">    this.val = val;</div><div class="line">    this.left = null;</div><div class="line">    this.right = null;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h4><ul>
+<li>广度优先遍历 使用队列</li>
+<li>深度优先遍历 使用栈（前序、中序、后序）</li>
+</ul>
+<h5 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h5><p>利用一个数组，先存入根结点，然后依次存入左右节点，每次从头部取出第一个进行操作（越先存入越早取出）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function binaryBFS(root)&#123;</div><div class="line">  let queue = [];</div><div class="line">  queue.push(root);</div><div class="line">  while(queue.length &gt; 0) &#123;</div><div class="line">    let current = queue.shift();</div><div class="line">    console.log(current.val); //或者其他的操作</div><div class="line">    if (current.left) &#123;</div><div class="line">      queue.push(current.left);</div><div class="line">    &#125;</div><div class="line">    if (current.right) &#123;</div><div class="line">      queue.push(current.right);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h5><p>左根右</p>
+<h6 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h6><p>思路：递归左，根，递归右<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function inorderTravelsal (root,array=[]) &#123;</div><div class="line">  if (root) &#123;</div><div class="line">    inorderTravelsal(root.left, array);</div><div class="line">    array.push(root.val);</div><div class="line">    inorderTravelsal(root.right, array);</div><div class="line">  &#125;</div><div class="line">  return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="非递归（迭代）"><a href="#非递归（迭代）" class="headerlink" title="非递归（迭代）"></a>非递归（迭代）</h6><p>思路：<br>定义一个栈数组，一个结果数组</p>
+<ol>
+<li>取根结点为目标节点，开始遍历</li>
+<li>左孩子入栈，直到左孩子为空的节点</li>
+<li>节点出栈，访问该节点</li>
+<li>以右孩子为目标节点，依次执行前三项</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function inorderTravelsal2 (root) &#123;</div><div class="line">  let stack = [];</div><div class="line">  let result = [];</div><div class="line">  let current = root;</div><div class="line">  while ( current || stack.length &gt; 0 ) &#123;</div><div class="line">    while ( current ) &#123;</div><div class="line">      stack.push(current);</div><div class="line">      current = current.left;</div><div class="line">    &#125;</div><div class="line">    current = stack.pop();</div><div class="line">    result.push(current.val);</div><div class="line">    current = current.right;</div><div class="line">  &#125;</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h5><p>根左右</p>
+<h6 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h6><p>思路：根，递归左，递归右<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function preorderTravelsal(root,array=[])&#123;</div><div class="line">  if(root)&#123;</div><div class="line">    array.push(root.val)</div><div class="line">    preorderTravelsal(root.left,array)</div><div class="line">    preorderTravelsal(root.right,array)</div><div class="line">&#125;</div><div class="line">  return array</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="非递归（迭代）-1"><a href="#非递归（迭代）-1" class="headerlink" title="非递归（迭代）"></a>非递归（迭代）</h6><p>思路：<br>定义一个栈数组，一个结果数组</p>
+<ol>
+<li>取根结点为目标节点，开始遍历</li>
+<li>访问目标节点</li>
+<li>左孩子入栈，直到左孩子为空的节点</li>
+<li>节点出栈，以右孩子为目标节点，依次执行前三项</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function preorderTravelsal2(root)&#123;</div><div class="line">  let stack = []</div><div class="line">  let result = []</div><div class="line">  let current = root</div><div class="line">  while(current || stack.length&gt;0)&#123;</div><div class="line">    while(current)&#123;</div><div class="line">      result.push(current.val)</div><div class="line">      stack.push(current)</div><div class="line">      current = current.left</div><div class="line">    &#125;</div><div class="line">    current = stack.pop()</div><div class="line">    current = current.right</div><div class="line">  &#125;</div><div class="line">  return result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h5><p>左右根</p>
+<h6 id="递归-2"><a href="#递归-2" class="headerlink" title="递归"></a>递归</h6><p>思路：递归左，递归右，根<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function postorderTravelsal(root,array=[])&#123;</div><div class="line">  if(root)&#123;</div><div class="line">    postorderTravelsal(root.left,array)</div><div class="line">    postorderTravelsal(root.right,array)</div><div class="line">    array.push(root.val)</div><div class="line">  &#125;</div><div class="line">  return array</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="非递归（迭代）-2"><a href="#非递归（迭代）-2" class="headerlink" title="非递归（迭代）"></a>非递归（迭代）</h6><p>思路：<br>定义一个栈数组，一个结果数组</p>
+<ol>
+<li>取根结点为目标节点，开始遍历</li>
+<li>用一个标志位last来标记上一个访问的节点</li>
+<li>左孩子入栈，直到左孩子为空的节点</li>
+<li>如果栈顶节点的右节点为空或者右节点被访问过=&gt;节点出栈，访问该节点，将节点标记为已访问</li>
+<li>否则，以右孩子为目标节点，重复以上</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function postorderTravelsal2(root)&#123;</div><div class="line">  let result = []</div><div class="line">  let stack = []</div><div class="line">  let current = root</div><div class="line">  let last = null</div><div class="line">  while(current || stack.length&gt;0)&#123;</div><div class="line">    while(current)&#123;</div><div class="line">      stack.push(current)</div><div class="line">      current = current.left</div><div class="line">    &#125;</div><div class="line">    current = stack[stack.length-1]</div><div class="line">    if(!current.right||current.right==last)&#123;</div><div class="line">      current = stack.pop()</div><div class="line">      result.push(current.val)</div><div class="line">      last = current</div><div class="line">      current = null</div><div class="line">    &#125;</div><div class="line">    else&#123;</div><div class="line">      current = current.right</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h4><h5 id="根据前序遍历pre和中序遍历vin重建二叉树"><a href="#根据前序遍历pre和中序遍历vin重建二叉树" class="headerlink" title="根据前序遍历pre和中序遍历vin重建二叉树"></a>根据前序遍历pre和中序遍历vin重建二叉树</h5><p>思路：</p>
+<ol>
+<li>如果长度是0或者1，直接return null或者return一个节点</li>
+<li>前序遍历找到根节点root（第一个）</li>
+<li>找到root在中序中的位置index</li>
+<li>根据index得到左右子树的前、中遍历</li>
+<li>递归</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function reconstructBinaryTree(pre,vin)&#123;</div><div class="line">  if(pre.length===0)&#123;</div><div class="line">    return null</div><div class="line">  &#125;</div><div class="line">  if(pre.length===1)&#123;</div><div class="line">    return new TreeNode(pre[0])</div><div class="line">  &#125;</div><div class="line">  const value = pre[0]</div><div class="line">  const index = vin.indexOf(value)</div><div class="line">  const preLeft = pre.slice(1,index+1)</div><div class="line">  const preRight = pre.slice(index+1)</div><div class="line">  const vinLeft = vin.slice(0,index)</div><div class="line">  const vinRight = vin.slice(index+1)</div><div class="line">  let node = new TreeNode(value)</div><div class="line">  node.left = reconstructBinaryTree(preLeft,vinLeft)</div><div class="line">  node.right = reconstructBinaryTree(preRight,vinRight)</div><div class="line">  return node</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h4><p>根节点相同，左右节点交换位置</p>
+<h5 id="判断是不是对称二叉树"><a href="#判断是不是对称二叉树" class="headerlink" title="判断是不是对称二叉树"></a>判断是不是对称二叉树</h5><p>思路：判断两个节点的关系</p>
+<ol>
+<li>如果都没有，true</li>
+<li>如果有一个没有，false</li>
+<li>如果值不同，false</li>
+<li>递归：比较节点1的左和节点2的右，比较节点1的右和节点2的左</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function isSymmetrical(root)&#123;</div><div class="line">  return isSymmetricalTree(root,root)</div><div class="line">&#125;</div><div class="line">function isSymmetricalTree(node1,node2)&#123;</div><div class="line">  if(!node1 &amp;&amp; !node2)&#123;</div><div class="line">    return true</div><div class="line">  &#125;</div><div class="line">  if(!node1 || !node2)&#123;</div><div class="line">    return false</div><div class="line">  &#125;</div><div class="line">  if(node1.val!=node2.val)&#123;</div><div class="line">    return false</div><div class="line">  &#125;</div><div class="line">  return isSymmetricalTree(node1.left,node2.right) &amp;&amp; isSymmetricalTree(node1.right,node2.left)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="求对称二叉树"><a href="#求对称二叉树" class="headerlink" title="求对称二叉树"></a>求对称二叉树</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function invertTree(root)&#123;</div><div class="line">  if(root)&#123;</div><div class="line">    [root.left,root.right] = [invertTree(root.right),invertTree(root.left)];</div><div class="line">  &#125;</div><div class="line">  return root</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h4><ul>
+<li>左子树的所有节点都小于根节点的值</li>
+<li>右子树的所有节点都大于根节点的值</li>
+<li>左右子树分别为二叉搜索树</li>
+</ul>
+<h5 id="判断是不是二叉搜索树"><a href="#判断是不是二叉搜索树" class="headerlink" title="判断是不是二叉搜索树"></a>判断是不是二叉搜索树</h5><p>思路：利用二叉搜索树的中序遍历是有序的特点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var isValidBST = function(root) &#123;</div><div class="line">    const queue = [];</div><div class="line">    function dfs(root)&#123;</div><div class="line">        if (!root)&#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        root.left &amp;&amp; dfs(root.left);</div><div class="line">        queue.push(root.val);</div><div class="line">        root.right &amp;&amp; dfs(root.right);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    dfs(root)</div><div class="line"></div><div class="line">    for(let i=0; i&lt;queue.length; i++)&#123;</div><div class="line">        if(queue[i] &gt;= queue[i+1])&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return true;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="判断是不是一个二叉搜索树的后序遍历"><a href="#判断是不是一个二叉搜索树的后序遍历" class="headerlink" title="判断是不是一个二叉搜索树的后序遍历"></a>判断是不是一个二叉搜索树的后序遍历</h5><p>思路：后序遍历 = 左子树 + 右子树 + 根</p>
+<ol>
+<li>先检测左子树，左侧比根节点小的值都被判定为左子树</li>
+<li>除最后一个节点外和左子树的其他值为右子树，右子树有一个比根节点小，则返回false</li>
+<li>若存在左、右子树，递归检测左、右子树是否符合规范</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function verifySequenceOfBST(sequence)&#123;</div><div class="line">  if(sequence &amp;&amp; sequence.length &gt; 0)&#123;</div><div class="line">    let root = sequence[sequence.length-1]</div><div class="line">    for(var i=0;i&lt;sequence.length-1;i++)&#123;</div><div class="line">      if(sequence[i]&gt;root)&#123;</div><div class="line">        break</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    for(let j=i;j&lt;sequence.length-1;j++)&#123;</div><div class="line">      if(sequence[j]&lt;root)&#123;</div><div class="line">        return false</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    let left = true</div><div class="line">    if(i&gt;0)&#123;</div><div class="line">      left = verifySequenceOfBST(sequence.slice(0,i))</div><div class="line">    &#125;</div><div class="line">    let right = true</div><div class="line">    if(i&lt;sequence.length-1)&#123;</div><div class="line">      right = verifySequenceOfBST(sequence.slice(i,sequence.length-1))</div><div class="line">    &#125;</div><div class="line">    return left &amp;&amp; right</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="二叉树的深度"><a href="#二叉树的深度" class="headerlink" title="二叉树的深度"></a>二叉树的深度</h4><p>深度：根节点到最远叶子节点的最长路径上的节点数</p>
+<h5 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function maxDepth(root)&#123;</div><div class="line">  if(root==null)&#123;</div><div class="line">    return 0</div><div class="line">  &#125;</div><div class="line">  return 1 + Math.max(maxDepth(root,left),maxDepth(root.right))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="二叉树的最小深度"><a href="#二叉树的最小深度" class="headerlink" title="二叉树的最小深度"></a>二叉树的最小深度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function minDepth(root)&#123;</div><div class="line">  if(!root)&#123;</div><div class="line">    return 0;</div><div class="line">  &#125;</div><div class="line">  if(!root.left)&#123;</div><div class="line">    return minDepth(root.right)+1;</div><div class="line">  &#125;</div><div class="line">  if(!root.right)&#123;</div><div class="line">    return minDepth(root.left)+1;</div><div class="line">  &#125;</div><div class="line">  return 1 + Math.min(minDepth(root.left),minDepth(root.right));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="判断平衡二叉树"><a href="#判断平衡二叉树" class="headerlink" title="判断平衡二叉树"></a>判断平衡二叉树</h5><p>思路：</p>
+<ol>
+<li>后序遍历二叉树，在遍历二叉树每个节点前都会遍历其左右子树</li>
+<li>比较左右子树的深度，若差值大于1则返回一个标记-1，表示不平衡</li>
+<li>左右子树有一个不平衡，或左右子树差值大于1，则整棵树不平衡</li>
+<li>若左右子树平衡，返回当前树的深度<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function isBalanced(root)&#123;</div><div class="line">  return depth(root)!=-1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function depth(node)&#123;</div><div class="line">  if(!node)&#123;</div><div class="line">    return 0;</div><div class="line">  &#125;</div><div class="line">  const left = depth(node.left);</div><div class="line">  const right = depth(node.right);</div><div class="line">  if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</div><div class="line">    return -1;</div><div class="line">  &#125;</div><div class="line">  return Math.max(left,right)+1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法和数据结构/" rel="tag"># 算法和数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/16/算法：排序算法/" rel="next" title="算法：排序算法">
+                <i class="fa fa-chevron-left"></i> 算法：排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/26/数据结构：链表/" rel="prev" title="数据结构：链表">
+                数据结构：链表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://photo.16pic.com/00/53/96/16pic_5396514_b.jpg"
+               alt="QinChaoru" />
+          <p class="site-author-name" itemprop="name">QinChaoru</p>
+           
+              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树遍历"><span class="nav-number">1.1.</span> <span class="nav-text">二叉树遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#广度优先遍历"><span class="nav-number">1.1.1.</span> <span class="nav-text">广度优先遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中序遍历"><span class="nav-number">1.1.2.</span> <span class="nav-text">中序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#递归"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#非递归（迭代）"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">非递归（迭代）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前序遍历"><span class="nav-number">1.1.3.</span> <span class="nav-text">前序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#递归-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#非递归（迭代）-1"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">非递归（迭代）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后序遍历"><span class="nav-number">1.1.4.</span> <span class="nav-text">后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#递归-2"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#非递归（迭代）-2"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">非递归（迭代）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重建二叉树"><span class="nav-number">1.2.</span> <span class="nav-text">重建二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#根据前序遍历pre和中序遍历vin重建二叉树"><span class="nav-number">1.2.1.</span> <span class="nav-text">根据前序遍历pre和中序遍历vin重建二叉树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对称二叉树"><span class="nav-number">1.3.</span> <span class="nav-text">对称二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#判断是不是对称二叉树"><span class="nav-number">1.3.1.</span> <span class="nav-text">判断是不是对称二叉树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#求对称二叉树"><span class="nav-number">1.3.2.</span> <span class="nav-text">求对称二叉树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树"><span class="nav-number">1.4.</span> <span class="nav-text">二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#判断是不是二叉搜索树"><span class="nav-number">1.4.1.</span> <span class="nav-text">判断是不是二叉搜索树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断是不是一个二叉搜索树的后序遍历"><span class="nav-number">1.4.2.</span> <span class="nav-text">判断是不是一个二叉搜索树的后序遍历</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的深度"><span class="nav-number">1.5.</span> <span class="nav-text">二叉树的深度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉树的最大深度"><span class="nav-number">1.5.1.</span> <span class="nav-text">二叉树的最大深度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉树的最小深度"><span class="nav-number">1.5.2.</span> <span class="nav-text">二叉树的最小深度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断平衡二叉树"><span class="nav-number">1.5.3.</span> <span class="nav-text">判断平衡二叉树</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QinChaoru</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
