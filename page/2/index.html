@@ -144,9 +144,9 @@
   <meta name="baidu-site-verification" content="code-AwcUWz3jHr" />
 
 
-<% if (config.site_verification.google){ %>
+<% if theme.google_site_verification %>
   <meta name="google-site-verification" content="udLwf1XjYsAeTqHOKafjPvwSeAnGrr9GrqEJ_MFjiw4" />
-<% } %>
+<% endif %>
 
   <title>QQCR</title>
   
@@ -376,7 +376,7 @@
 <li>这样当l=r时，左侧的值全部小于target，右侧的值全部大于target，将target放到该位置</li></ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/07/16/算法：排序算法/#далее" rel="contents">
+            <a class="btn" href="/2020/07/16/算法：排序算法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -524,7 +524,7 @@
 <li>引用类型即对象类型，Object、Array、Date…</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/07/14/一定要知道的js知识点/#далее" rel="contents">
+            <a class="btn" href="/2020/07/14/一定要知道的js知识点/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -670,7 +670,7 @@
           <p><em>Sorry we missed you</em><br>对不起，我们错过了你<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/07/01/Sorry-we-missed-you/#далее" rel="contents">
+            <a class="btn" href="/2020/07/01/Sorry-we-missed-you/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -964,7 +964,7 @@
           <h4 id="拉取远程分支"><a href="#拉取远程分支" class="headerlink" title="拉取远程分支"></a>拉取远程分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git branch -a //查看所有分支，包括本地和远程</div><div class="line">git checkout 某分支名</div><div class="line">git pull //拉取远程内容</div><div class="line">git checkout -b 本地分支名 origin/远程分支名 //拉取远程的某一个到本地的某一个</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/06/30/常用的一些git命令/#далее" rel="contents">
+            <a class="btn" href="/2020/06/30/常用的一些git命令/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1110,7 +1110,7 @@
           <p>2020也要好好读书呀</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/06/18/2020读了哪些书/#далее" rel="contents">
+            <a class="btn" href="/2020/06/18/2020读了哪些书/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1256,7 +1256,7 @@
           <p>git submodule即git子模块，将一个git仓库作为另一个git仓库的子目录<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/05/30/git-submodule/#далее" rel="contents">
+            <a class="btn" href="/2020/05/30/git-submodule/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1402,7 +1402,7 @@
           <h2 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h2><h3 id="什么是服务端渲染"><a href="#什么是服务端渲染" class="headerlink" title="什么是服务端渲染"></a>什么是服务端渲染</h3><p>将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/05/21/服务端渲染SSR/#далее" rel="contents">
+            <a class="btn" href="/2020/05/21/服务端渲染SSR/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1549,7 +1549,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir react-webpack</div><div class="line">cd react-webpack</div><div class="line">npm init</div><div class="line">npm install --save-dev webpack</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/01/创建一个react-webpack-babel项目/#далее" rel="contents">
+            <a class="btn" href="/2019/10/01/创建一个react-webpack-babel项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1695,7 +1695,7 @@
           <h3 id="为什么JAVASCRIPT是单线程"><a href="#为什么JAVASCRIPT是单线程" class="headerlink" title="为什么JAVASCRIPT是单线程"></a>为什么JAVASCRIPT是单线程</h3><p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/10/01/Javascript异步编程-Eventloop运行机制/#далее" rel="contents">
+            <a class="btn" href="/2019/10/01/Javascript异步编程-Eventloop运行机制/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
