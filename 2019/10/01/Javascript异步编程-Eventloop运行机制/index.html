@@ -103,7 +103,7 @@
 <meta property="og:description" content="为什么JAVASCRIPT是单线程JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScrip">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.processon.com/chart_image/id/58fd9b66e4b0639c2f5b5dc7.png">
-<meta property="og:updated_time" content="2020-09-08T03:21:53.444Z">
+<meta property="og:updated_time" content="2020-10-07T08:17:41.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript异步编程 Eventloop运行机制">
 <meta name="twitter:description" content="为什么JAVASCRIPT是单线程JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScrip">
@@ -178,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -224,16 +224,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -369,7 +359,7 @@
       
 
       
-        <h3 id="为什么JAVASCRIPT是单线程"><a href="#为什么JAVASCRIPT是单线程" class="headerlink" title="为什么JAVASCRIPT是单线程"></a>为什么JAVASCRIPT是单线程</h3><p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。</p>
+        <h3 id="为什么JAVASCRIPT是单线程"><a href="#为什么JAVASCRIPT是单线程" class="headerlink" title="为什么JAVASCRIPT是单线程"></a>为什么JAVASCRIPT是单线程</h3><p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。<br><a id="more"></a></p>
 <h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。（在异步操作完成后所要做的任务，它们通常以回调函数或者 Promise 的形式被放入事件队列）</p>
 <h3 id="异步操作和异步任务"><a href="#异步操作和异步任务" class="headerlink" title="异步操作和异步任务"></a>异步操作和异步任务</h3><ul>
 <li>异步操作一般包括 网络请求 、文件读取 、数据库处理</li>
@@ -472,6 +462,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -511,14 +503,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -736,6 +728,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

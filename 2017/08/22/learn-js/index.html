@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
+<meta name="description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="learn js">
 <meta property="og:url" content="http://QQCR.github.io/2017/08/22/learn-js/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
+<meta property="og:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T03:22:04.964Z">
+<meta property="og:updated_time" content="2020-10-07T08:17:54.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="learn js">
-<meta name="twitter:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个  全局变量： 如果在所有函数以外定义全局变量 用var 如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var 如果局部变量和全局变量名称相同 局部变量优先  比较大小： 相等(转换类型 &amp;gt;和&amp;lt;也符合)：1234567891011">
+<meta name="twitter:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -371,9 +361,8 @@
 <li>pop()：移除最后一个</li>
 <li>push(xxx)：加入到最后一个</li>
 <li>shift()：移除第一个</li>
-<li>unshift()：加入到第一个</li>
-</ul>
-<h4 id="全局变量："><a href="#全局变量：" class="headerlink" title="全局变量："></a>全局变量：</h4><ul>
+<li>unshift()：加入到第一个<a id="more"></a>
+<h4 id="全局变量："><a href="#全局变量：" class="headerlink" title="全局变量："></a>全局变量：</h4></li>
 <li>如果在所有函数以外定义全局变量 用var</li>
 <li>如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var</li>
 <li>如果局部变量和全局变量名称相同 局部变量优先</li>
@@ -454,6 +443,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -493,14 +484,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -718,6 +709,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序 为什么有服务端渲染优势 更好的SEO，搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。SEO重要但页面异步获取内容 ==&amp;gt;  SSR 更快的内容到达时间，无需等待所有的JS都完成下载并执行用户体验 ==&amp;gt; SSR  权衡之处 开发条件有限，部">
+<meta name="description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端渲染SSR">
 <meta property="og:url" content="http://QQCR.github.io/2020/05/21/服务端渲染SSR/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序 为什么有服务端渲染优势 更好的SEO，搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。SEO重要但页面异步获取内容 ==&amp;gt;  SSR 更快的内容到达时间，无需等待所有的JS都完成下载并执行用户体验 ==&amp;gt; SSR  权衡之处 开发条件有限，部">
+<meta property="og:description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/5/24/16390509c83aef03?imageslim">
 <meta property="og:image" content="https://zh.nuxtjs.org/nuxt-schema.svg">
 <meta property="og:image" content="http://qqcr.github.io/2020/05/21/服务端渲染SSR/nuxtjs.jpeg">
-<meta property="og:updated_time" content="2020-09-08T03:20:27.198Z">
+<meta property="og:updated_time" content="2020-10-07T08:16:04.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务端渲染SSR">
-<meta name="twitter:description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序 为什么有服务端渲染优势 更好的SEO，搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。SEO重要但页面异步获取内容 ==&amp;gt;  SSR 更快的内容到达时间，无需等待所有的JS都完成下载并执行用户体验 ==&amp;gt; SSR  权衡之处 开发条件有限，部">
+<meta name="twitter:description" content="服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/5/24/16390509c83aef03?imageslim">
 
 
@@ -180,7 +180,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -226,16 +226,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -371,7 +361,7 @@
       
 
       
-        <h2 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h2><h3 id="什么是服务端渲染"><a href="#什么是服务端渲染" class="headerlink" title="什么是服务端渲染"></a>什么是服务端渲染</h3><p>将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序</p>
+        <h2 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h2><h3 id="什么是服务端渲染"><a href="#什么是服务端渲染" class="headerlink" title="什么是服务端渲染"></a>什么是服务端渲染</h3><p>将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序<br><a id="more"></a></p>
 <h3 id="为什么有服务端渲染"><a href="#为什么有服务端渲染" class="headerlink" title="为什么有服务端渲染"></a>为什么有服务端渲染</h3><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul>
 <li>更好的SEO，搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。<br>SEO重要但页面异步获取内容 ==&gt;  SSR</li>
 <li>更快的内容到达时间，无需等待所有的JS都完成下载并执行<br>用户体验 ==&gt; SSR</li>
@@ -489,6 +479,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -528,14 +520,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -753,6 +745,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

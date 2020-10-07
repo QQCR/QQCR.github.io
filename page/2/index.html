@@ -94,16 +94,16 @@
 
 
 
-<meta name="description" content="坚持比努力更可怕">
+<meta name="description" content="做一个可爱的人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="QQCR">
 <meta property="og:url" content="http://QQCR.github.io/page/2/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="坚持比努力更可怕">
+<meta property="og:description" content="做一个可爱的人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QQCR">
-<meta name="twitter:description" content="坚持比努力更可怕">
+<meta name="twitter:description" content="做一个可爱的人">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -370,12 +360,11 @@
 
       
         
-          
-          排序算法快速排序排序方法选择一个目标值，比目标值小的放在左边，比目标值大的放在右边，目标值的位置已经排好，将左右两侧再进行排序
-实现思路
-记录一个索引l从数组最左侧开始，记录一个索引r从数组最右侧开始，记录一个target（选第一位为目标值）
-while循环：在l&lt;r的条件下，找到右侧小于ta
-          ...
+          <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><h5 id="排序方法"><a href="#排序方法" class="headerlink" title="排序方法"></a>排序方法</h5><p>选择一个目标值，比目标值小的放在左边，比目标值大的放在右边，目标值的位置已经排好，将左右两侧再进行排序</p>
+<h5 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h5><ol>
+<li>记录一个索引l从数组最左侧开始，记录一个索引r从数组最右侧开始，记录一个target（选第一位为目标值）</li>
+<li>while循环：在<code>l&lt;r</code>的条件下，找到右侧小于<code>target</code>的值<code>array[r]</code>，并将其赋值到<code>array[l]</code><br>在<code>l&lt;r</code>的条件下，找到左侧大于<code>target</code>的值<code>array[l]</code>，并将其赋值到<code>array[r]</code></li>
+<li>这样当l=r时，左侧的值全部小于target，右侧的值全部大于target，将target放到该位置</li></ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/16/算法：排序算法/#more" rel="contents">
@@ -521,23 +510,9 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          一. 变量和类型1. 有哪些数据类型
-七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object
-引用类型即对象类型，Object、Array、Date…
-
-2. 基本类型和引用类型的区别
-
-
-基本类型
-引用类型
-
-
-
-
-值是不可变的
-值是可变
-          ...
+          <h3 id="一-变量和类型"><a href="#一-变量和类型" class="headerlink" title="一. 变量和类型"></a>一. 变量和类型</h3><h4 id="1-有哪些数据类型"><a href="#1-有哪些数据类型" class="headerlink" title="1. 有哪些数据类型"></a>1. 有哪些数据类型</h4><ul>
+<li>七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object</li>
+<li>引用类型即对象类型，Object、Array、Date…</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/14/一定要知道的js知识点/#more" rel="contents">
@@ -683,10 +658,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          Sorry we missed you对不起，我们错过了你
-一个社会底层的家庭，男人为了多挣钱决定买一辆van送快递，于是卖掉了做护工的妻子每天跑7、8户人家需要通勤的小车男人从早到晚工作，顾不上家，顾不上叛逆的男孩和受伤的女孩，但他好爱他们他的妻子是个温柔的女人，像照顾自己的妈妈一样照顾那些老人，
-          ...
+          <p><em>Sorry we missed you</em><br>对不起，我们错过了你<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/01/Sorry-we-missed-you/#more" rel="contents">
@@ -833,22 +805,15 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
       
         
           
+            <ol>
+<li><p>安装查看具体过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --verbose</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看npm的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config ls</div></pre></td></tr></table></figure></li>
+</ol>
+
           
-安装查看具体过程
-1npm install --verbose
-
-查看npm的配置
-1npm config ls
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/06/30/常用的一些npm命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -987,10 +952,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          拉取远程分支1234git branch -a //查看所有分支，包括本地和远程git checkout 某分支名git pull //拉取远程内容git checkout -b 本地分支名 origin/远程分支名 //拉取远程的某一个到本地的某一个
-基本1234git branch //查看当前
-          ...
+          <h4 id="拉取远程分支"><a href="#拉取远程分支" class="headerlink" title="拉取远程分支"></a>拉取远程分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git branch -a //查看所有分支，包括本地和远程</div><div class="line">git checkout 某分支名</div><div class="line">git pull //拉取远程内容</div><div class="line">git checkout -b 本地分支名 origin/远程分支名 //拉取远程的某一个到本地的某一个</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/06/30/常用的一些git命令/#more" rel="contents">
@@ -1136,10 +1098,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          2020也要好好读书呀
-海边的卡夫卡跳跃的节奏，讲一篇卡夫卡，讲一篇和猫对话的中田。还是村上的魔幻。两条线，两个故事，十五岁少年，古希腊神话般的预言，疯狂的关系，中田和各种猫君的对话，以及两段的奇妙联系。当时在排梵蒂冈大教堂参观的队，却看的欲罢不能。。很奇怪，记忆最清楚的是这个十五岁的少年每天严格自
-          ...
+          <p>2020也要好好读书呀</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/06/18/2020读了哪些书/#more" rel="contents">
@@ -1285,16 +1244,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          git submodule即git子模块，将一个git仓库作为另一个git仓库的子目录
-添加一个子模块1git submodule add
-会增加：
-
-.gitmodules文件，记录每个子模块的引用信息
-相应的子模块
-
-克隆一个带有submodules的仓库123456789git clonegi
-          ...
+          <p>git submodule即git子模块，将一个git仓库作为另一个git仓库的子目录<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/05/30/git-submodule/#more" rel="contents">
@@ -1440,12 +1390,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          服务端渲染什么是服务端渲染将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序
-为什么有服务端渲染优势
-更好的SEO，搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。SEO重要但页面异步获取内容 ==&gt;  SSR
-更快的内容到达
-          ...
+          <h2 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h2><h3 id="什么是服务端渲染"><a href="#什么是服务端渲染" class="headerlink" title="什么是服务端渲染"></a>什么是服务端渲染</h3><p>将组件渲染为服务器端的HTML字符串，将它们直接发送到浏览器，最后将这些静态标记“激活”为客户端上完全可交互的应用程序<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/05/21/服务端渲染SSR/#more" rel="contents">
@@ -1591,11 +1536,8 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          创建一个react项目：webpack一步一步构建1. 安装webpack在安装webpack之前，先建立一个文件夹并进入。
-1234mkdir react-webpackcd react-webpacknpm initnpm install --save-dev webpack
-2. 配置webp
-          ...
+          <h1 id="创建一个react项目：webpack一步一步构建"><a href="#创建一个react项目：webpack一步一步构建" class="headerlink" title="创建一个react项目：webpack一步一步构建"></a>创建一个react项目：webpack一步一步构建</h1><h3 id="1-安装webpack"><a href="#1-安装webpack" class="headerlink" title="1. 安装webpack"></a>1. 安装webpack</h3><p>在安装webpack之前，先建立一个文件夹并进入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir react-webpack</div><div class="line">cd react-webpack</div><div class="line">npm init</div><div class="line">npm install --save-dev webpack</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/01/创建一个react-webpack-babel项目/#more" rel="contents">
@@ -1741,9 +1683,7 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
       
         
-          
-          为什么JAVASCRIPT是单线程JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个
-          ...
+          <h3 id="为什么JAVASCRIPT是单线程"><a href="#为什么JAVASCRIPT是单线程" class="headerlink" title="为什么JAVASCRIPT是单线程"></a>为什么JAVASCRIPT是单线程</h3><p>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/01/Javascript异步编程-Eventloop运行机制/#more" rel="contents">
@@ -1826,14 +1766,14 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -2035,6 +1975,21 @@ while循环：在l&lt;r的条件下，找到右侧小于ta
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

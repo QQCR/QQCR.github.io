@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="QQCR">
 <meta property="og:description" content="两数之和 给一个整数数组nums和目标值target，找出和为目标值的两个整数的下标 [2,7,11,15] 9 =&amp;gt; [0,1]  思路： 使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。 每次遍历在map中查找是否有key为target-nums[i]的值 如果取到，则条件成立，返回 如果没有取到，则将当前值为key，下标作为value存入m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-09T02:34:13.622Z">
+<meta property="og:updated_time" content="2020-10-07T08:16:33.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构：数组">
 <meta name="twitter:description" content="两数之和 给一个整数数组nums和目标值target，找出和为目标值的两个整数的下标 [2,7,11,15] 9 =&amp;gt; [0,1]  思路： 使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。 每次遍历在map中查找是否有key为target-nums[i]的值 如果取到，则条件成立，返回 如果没有取到，则将当前值为key，下标作为value存入m">
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -375,9 +365,10 @@
 <li>使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。</li>
 <li>每次遍历在map中查找是否有key为<code>target-nums[i]</code>的值</li>
 <li>如果取到，则条件成立，返回</li>
-<li>如果没有取到，则将当前值为key，下标作为value存入map</li>
-</ol>
+<li>如果没有取到，则将当前值为key，下标作为value存入map<a id="more"></a>
 <h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function twoSum(nums, target) &#123;</div><div class="line">  let map = &#123;&#125;;</div><div class="line">  for (let i=0; i&lt;nums.length; i++) &#123;</div><div class="line">    if(map[target-nums[i]] !== undefined) &#123;</div><div class="line">      return [map[target - nums[i]], i];</div><div class="line">    &#125; </div><div class="line">    else &#123;</div><div class="line">      map[nums[i]] = i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return [];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">  public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</div><div class="line">    for(int i=0; i&lt;nums.length;i++) &#123;</div><div class="line">      int complement = target - nums[i];</div><div class="line">      if(map.containsKey(complement)) &#123;</div><div class="line">        return new int[] &#123; map.get(complement), i &#125;;</div><div class="line">      &#125;</div><div class="line">      map.put(nums[i], i);</div><div class="line">    &#125;</div><div class="line">    throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h3><ul>
 <li>nums中存在三个元素a+b+c=0</li>
@@ -464,6 +455,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -503,14 +496,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -728,6 +721,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

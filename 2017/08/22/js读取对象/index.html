@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])点操作：当知道属性的名称的时候123456var myObj = &amp;#123;  prop1: &amp;quot;val1&amp;quot;,  prop2: &amp;quot;val2&amp;quot;&amp;#125;;var prop1val = myObj.prop1; // val1var prop2val = myObj.prop2; // v">
+<meta name="description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js读取对象">
 <meta property="og:url" content="http://QQCR.github.io/2017/08/22/js读取对象/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])点操作：当知道属性的名称的时候123456var myObj = &amp;#123;  prop1: &amp;quot;val1&amp;quot;,  prop2: &amp;quot;val2&amp;quot;&amp;#125;;var prop1val = myObj.prop1; // val1var prop2val = myObj.prop2; // v">
+<meta property="og:description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T03:21:57.126Z">
+<meta property="og:updated_time" content="2020-10-07T08:17:44.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js读取对象">
-<meta name="twitter:description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])点操作：当知道属性的名称的时候123456var myObj = &amp;#123;  prop1: &amp;quot;val1&amp;quot;,  prop2: &amp;quot;val2&amp;quot;&amp;#125;;var prop1val = myObj.prop1; // val1var prop2val = myObj.prop2; // v">
+<meta name="twitter:description" content="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -367,7 +357,8 @@
       
 
       
-        <h3 id="读取js对象的两种方式：一个是点操作符-，一个是中括号操作符"><a href="#读取js对象的两种方式：一个是点操作符-，一个是中括号操作符" class="headerlink" title="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])"></a>读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])</h3><h4 id="点操作："><a href="#点操作：" class="headerlink" title="点操作："></a>点操作：</h4><p>当知道属性的名称的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var myObj = &#123;</div><div class="line">  prop1: &quot;val1&quot;,</div><div class="line">  prop2: &quot;val2&quot;</div><div class="line">&#125;;</div><div class="line">var prop1val = myObj.prop1; // val1</div><div class="line">var prop2val = myObj.prop2; // val2</div></pre></td></tr></table></figure></p>
+        <h3 id="读取js对象的两种方式：一个是点操作符-，一个是中括号操作符"><a href="#读取js对象的两种方式：一个是点操作符-，一个是中括号操作符" class="headerlink" title="读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])"></a>读取js对象的两种方式：一个是点操作符(.)，一个是中括号操作符([])</h3><a id="more"></a>
+<h4 id="点操作："><a href="#点操作：" class="headerlink" title="点操作："></a>点操作：</h4><p>当知道属性的名称的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var myObj = &#123;</div><div class="line">  prop1: &quot;val1&quot;,</div><div class="line">  prop2: &quot;val2&quot;</div><div class="line">&#125;;</div><div class="line">var prop1val = myObj.prop1; // val1</div><div class="line">var prop2val = myObj.prop2; // val2</div></pre></td></tr></table></figure></p>
 <h4 id="中括号："><a href="#中括号：" class="headerlink" title="中括号："></a>中括号：</h4><p>例如，想访问的属性的名称有一个空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var myObj = &#123;</div><div class="line">  &quot;Space Name&quot;: &quot;Kirk&quot;,</div><div class="line">  &quot;More Space&quot;: &quot;Spock&quot;</div><div class="line">&#125;;</div><div class="line">myObj[&quot;Space Name&quot;]; // Kirk</div><div class="line">myObj[&apos;More Space&apos;]; // Spock</div></pre></td></tr></table></figure></p>
 <p>中括号操作符的另一个使用方式是用变量来访问一个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var someProp = &quot;propName&quot;;</div><div class="line">var myObj = &#123;</div><div class="line">  propName: &quot;Some Value&quot;</div><div class="line">&#125;</div><div class="line">myObj[someProp]; // &quot;Some Value&quot;</div></pre></td></tr></table></figure></p>
 
@@ -442,6 +433,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -481,14 +474,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -706,6 +699,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

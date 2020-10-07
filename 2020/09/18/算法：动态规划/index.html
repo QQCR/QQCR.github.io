@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件  最长回文子串思路：从中间往两边去  确定dp[i][j]是否">
+<meta name="description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件">
 <meta name="keywords" content="算法和数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法：动态规划">
 <meta property="og:url" content="http://QQCR.github.io/2020/09/18/算法：动态规划/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件  最长回文子串思路：从中间往两边去  确定dp[i][j]是否">
+<meta property="og:description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-18T12:46:58.920Z">
+<meta property="og:updated_time" content="2020-10-07T08:13:40.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法：动态规划">
-<meta name="twitter:description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件  最长回文子串思路：从中间往两边去  确定dp[i][j]是否">
+<meta name="twitter:description" content="动态规划核心 记住已经解决过的子问题的解  原理 最优子结构：一个问题的解结构包含其子问题的最优解，用子问题的最优解来构造原问题的最优解 重叠子问题：递归算法反复求解相同的子问题，使用数组来保存子问题的解  求解 找到状态转移方程，进行自底向上的求解 步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -378,6 +368,7 @@
 <li>找到状态转移方程，进行自底向上的求解</li>
 <li>步骤：1 定义子问题 2 实现要反复执行来解决子问题的部分 3 识别并求解出基线条件</li>
 </ul>
+<a id="more"></a>
 <h4 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h4><p>思路：<br>从中间往两边去</p>
 <ol>
 <li>确定dp[i][j]是否是回文数，只需要dp[i+1][j-1]是回文并且s[i]==s[j]即可</li>
@@ -475,6 +466,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -514,14 +507,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -739,6 +732,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

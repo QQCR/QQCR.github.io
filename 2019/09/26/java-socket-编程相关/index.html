@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="QQCR">
 <meta property="og:description" content="简单一发一收 多线程通信：每个server是一个线程，每次调用accept()函数和client形成连接以后，实例化一个线程来处理这个连接，线程start()运行写在线程类中run()方法中的数据传输 Group chat: 创建一个简单的gui用户界面作为client，client中写入，在server控制台中读取到；广播功能：从一个client收到的一条消息，发给所有已经形成连接的clien">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T03:22:31.210Z">
+<meta property="og:updated_time" content="2020-10-07T08:17:32.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java socket编程相关">
 <meta name="twitter:description" content="简单一发一收 多线程通信：每个server是一个线程，每次调用accept()函数和client形成连接以后，实例化一个线程来处理这个连接，线程start()运行写在线程类中run()方法中的数据传输 Group chat: 创建一个简单的gui用户界面作为client，client中写入，在server控制台中读取到；广播功能：从一个client收到的一条消息，发给所有已经形成连接的clien">
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -370,9 +360,8 @@
         <ul>
 <li>简单一发一收</li>
 <li>多线程通信：每个server是一个线程，每次调用accept()函数和client形成连接以后，实例化一个线程来处理这个连接，线程start()运行写在线程类中run()方法中的数据传输</li>
-<li>Group chat: 创建一个简单的gui用户界面作为client，client中写入，在server控制台中读取到；广播功能：从一个client收到的一条消息，发给所有已经形成连接的clients，创建一个vector来储存所有的client，每次连接成功以后加入vector。把这个vector传给每一个连接的线程，当收到消息以后，循环vector中的所有成员，用bufferedwriter对象传入数据。在client端，创建一个运行着的线程兼听server传来的消息并输出。  </li>
-</ul>
-<h4 id="一些bug"><a href="#一些bug" class="headerlink" title="一些bug"></a>一些bug</h4><ul>
+<li>Group chat: 创建一个简单的gui用户界面作为client，client中写入，在server控制台中读取到；广播功能：从一个client收到的一条消息，发给所有已经形成连接的clients，创建一个vector来储存所有的client，每次连接成功以后加入vector。把这个vector传给每一个连接的线程，当收到消息以后，循环vector中的所有成员，用bufferedwriter对象传入数据。在client端，创建一个运行着的线程兼听server传来的消息并输出。  <a id="more"></a>
+<h4 id="一些bug"><a href="#一些bug" class="headerlink" title="一些bug"></a>一些bug</h4></li>
 <li>readline()函数本身有阻塞，导致write也不能运行，出现死锁。程序中体现为收不到消息或者close()以后才可以收到。解决：可以单向关闭用socket.shutdownOutput()但是这样之后就不能再write可能不适用；或者可以对readline进行判断，比如写的时候加一个eof标志位或者在判断readline读到的是不是null来进行while循环。</li>
 <li>vector的使用，添加的内容必须是对象，用Enumeration循环的时候，要像ArrayList那样写到Enumeration&lt;对象&gt;这样定义。把enu.nextElement()先提取出来，否则会一直next出现空指针。</li>
 </ul>
@@ -448,6 +437,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -487,14 +478,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -712,6 +703,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

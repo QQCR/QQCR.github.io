@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值  分发饼干 g：每个孩子都有一个胃口值，s：每块饼干都有一个尺寸，输出最多满足孩子的数量 [1,2,3],">
+<meta name="description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值">
 <meta name="keywords" content="算法和数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法：贪心算法">
 <meta property="og:url" content="http://QQCR.github.io/2020/07/27/算法：贪心算法/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值  分发饼干 g：每个孩子都有一个胃口值，s：每块饼干都有一个尺寸，输出最多满足孩子的数量 [1,2,3],">
+<meta property="og:description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T03:21:12.279Z">
+<meta property="og:updated_time" content="2020-10-07T08:16:50.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法：贪心算法">
-<meta name="twitter:description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值  分发饼干 g：每个孩子都有一个胃口值，s：每块饼干都有一个尺寸，输出最多满足孩子的数量 [1,2,3],">
+<meta name="twitter:description" content="贪心算法 对问题求解的时候，总是做出在当前看来是最好的做法 适用场景：问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解 与动态规划的不同：对每个子问题的解决方案都做出选择，不能回退  比较 回溯算法：重复计算 贪心算法：永远局部最优 动态规划：记录局部最优子结构，多种记录值">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -377,6 +367,7 @@
 <li>贪心算法：永远局部最优</li>
 <li>动态规划：记录局部最优子结构，多种记录值</li>
 </ol>
+<a id="more"></a>
 <h4 id="分发饼干"><a href="#分发饼干" class="headerlink" title="分发饼干"></a>分发饼干</h4><ul>
 <li>g：每个孩子都有一个胃口值，s：每块饼干都有一个尺寸，输出最多满足孩子的数量</li>
 <li>[1,2,3],[1,1] =&gt; 1, [1,2],[1,2,3] =&gt; 2</li>
@@ -458,6 +449,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -497,14 +490,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -722,6 +715,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

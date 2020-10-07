@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]  思路 遍历点，用一个数组记">
+<meta name="description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]">
 <meta name="keywords" content="算法和数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Amazon高频练习">
 <meta property="og:url" content="http://QQCR.github.io/2020/09/09/Amazon高频练习/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]  思路 遍历点，用一个数组记">
+<meta property="og:description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-12T03:03:45.911Z">
+<meta property="og:updated_time" content="2020-10-07T08:17:09.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon高频练习">
-<meta name="twitter:description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]  思路 遍历点，用一个数组记">
+<meta name="twitter:description" content="973. 最接近原点的K个点  K Closest Points to Origin We have a list of points on the plane.  Find the K closest points to the origin (0, 0) Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -369,9 +359,10 @@
       
         <h3 id="973-最接近原点的K个点-K-Closest-Points-to-Origin"><a href="#973-最接近原点的K个点-K-Closest-Points-to-Origin" class="headerlink" title="973. 最接近原点的K个点  K Closest Points to Origin"></a>973. 最接近原点的K个点  K Closest Points to Origin</h3><ul>
 <li>We have a list of points on the plane.  Find the K closest points to the origin (0, 0)</li>
-<li>Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]</li>
+<li>Input: points = [[1,3],[-2,2]], K = 1  Output: [[-2,2]]<a id="more"></a>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4></li>
 </ul>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
+<ol>
 <li>遍历点，用一个数组记录每个点距离原点的距离</li>
 <li>给这个数组排序，取出这个数组里第k个数值</li>
 <li>再次遍历点，取出所有小于这个value的值，存入结果数组</li>
@@ -502,6 +493,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -541,14 +534,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -766,6 +759,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 

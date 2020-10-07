@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="QQCR">
 <meta property="og:description" content="排序算法快速排序排序方法选择一个目标值，比目标值小的放在左边，比目标值大的放在右边，目标值的位置已经排好，将左右两侧再进行排序 实现思路 记录一个索引l从数组最左侧开始，记录一个索引r从数组最右侧开始，记录一个target（选第一位为目标值） while循环：在l&amp;lt;r的条件下，找到右侧小于target的值array[r]，并将其赋值到array[l]在l&amp;lt;r的条件下，找到左侧大于tar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T03:21:08.757Z">
+<meta property="og:updated_time" content="2020-10-07T08:16:47.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法：排序算法">
 <meta name="twitter:description" content="排序算法快速排序排序方法选择一个目标值，比目标值小的放在左边，比目标值大的放在右边，目标值的位置已经排好，将左右两侧再进行排序 实现思路 记录一个索引l从数组最左侧开始，记录一个索引r从数组最右侧开始，记录一个target（选第一位为目标值） while循环：在l&amp;lt;r的条件下，找到右侧小于target的值array[r]，并将其赋值到array[l]在l&amp;lt;r的条件下，找到左侧大于tar">
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不知道会写点什么的博客</p>
+        <p class="site-subtitle">写点什么呢</p>
       
   </div>
 
@@ -222,16 +222,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -371,9 +361,10 @@
 <h5 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h5><ol>
 <li>记录一个索引l从数组最左侧开始，记录一个索引r从数组最右侧开始，记录一个target（选第一位为目标值）</li>
 <li>while循环：在<code>l&lt;r</code>的条件下，找到右侧小于<code>target</code>的值<code>array[r]</code>，并将其赋值到<code>array[l]</code><br>在<code>l&lt;r</code>的条件下，找到左侧大于<code>target</code>的值<code>array[l]</code>，并将其赋值到<code>array[r]</code></li>
-<li>这样当l=r时，左侧的值全部小于target，右侧的值全部大于target，将target放到该位置</li>
-</ol>
+<li>这样当l=r时，左侧的值全部小于target，右侧的值全部大于target，将target放到该位置<a id="more"></a>
 <h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function quickSort(array,start=0,end=array.length-1)&#123;</div><div class="line">  if ( start &gt;= end ) &#123;</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line">  let l = start;</div><div class="line">  let r = end;</div><div class="line">  let target = array[start];</div><div class="line">  while ( l &lt; r ) &#123;</div><div class="line">    while (l &lt; r &amp;&amp; array[r] &gt;= target) &#123;</div><div class="line">      r--;</div><div class="line">    &#125;</div><div class="line">    array[l] = array[r];</div><div class="line">    while (l &lt; r &amp;&amp; array[l] &lt; target) &#123;</div><div class="line">      l++;</div><div class="line">    &#125;</div><div class="line">    array[r] = array[l];</div><div class="line">  &#125;</div><div class="line">  array[l] = target;</div><div class="line">  quickSort(array, start, l-1);</div><div class="line">  quickSort(array, l+1, end);</div><div class="line">  return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h5 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h5><p>平均时间复杂度： O(nlogn)<br>最坏时间复杂度： O(n^2)<br>空间复杂度：O(logn)</p>
 <h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><h5 id="排序方法-1"><a href="#排序方法-1" class="headerlink" title="排序方法"></a>排序方法</h5><p>每次给一个数排序，前面的已经排好了，在后面选取一个最大或者最小的数字放到前面的有序序列中。</p>
 <h5 id="实现思路-1"><a href="#实现思路-1" class="headerlink" title="实现思路"></a>实现思路</h5><ol>
@@ -522,6 +513,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="vcomments"></div>
+    
   </div>
 
 
@@ -561,14 +554,14 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">坚持比努力更可怕</p>
+              <p class="site-description motion-element" itemprop="description">做一个可爱的人</p>
           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/">
                 <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -786,6 +779,21 @@
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '输入评论...'
+    });
+  </script>
 
 
 
