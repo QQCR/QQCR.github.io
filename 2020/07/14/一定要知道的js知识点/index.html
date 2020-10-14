@@ -91,18 +91,21 @@
 
 
 
-<meta name="description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
+<meta name="description" content="一. 变量和类型有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一定要知道的js知识点">
 <meta property="og:url" content="http://QQCR.github.io/2020/07/14/一定要知道的js知识点/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
+<meta property="og:description" content="一. 变量和类型有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-07T08:16:57.721Z">
+<meta property="og:image" content="http://qqcr.github.io/2020/07/14/一定要知道的js知识点/寻找函数foo中的this.png">
+<meta property="og:image" content="http://qqcr.github.io/2020/07/14/一定要知道的js知识点/事件循环.png">
+<meta property="og:updated_time" content="2020-10-14T14:02:01.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一定要知道的js知识点">
-<meta name="twitter:description" content="一. 变量和类型1. 有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
+<meta name="twitter:description" content="一. 变量和类型有哪些数据类型 七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object 引用类型即对象类型，Object、Array、Date…">
+<meta name="twitter:image" content="http://qqcr.github.io/2020/07/14/一定要知道的js知识点/寻找函数foo中的this.png">
 
 
 
@@ -319,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index">
-                    <span itemprop="name">coding</span>
+                  <a href="/categories/前端basic/" itemprop="url" rel="index">
+                    <span itemprop="name">前端basic</span>
                   </a>
                 </span>
 
@@ -356,12 +359,34 @@
       
 
       
-        <h3 id="一-变量和类型"><a href="#一-变量和类型" class="headerlink" title="一. 变量和类型"></a>一. 变量和类型</h3><h4 id="1-有哪些数据类型"><a href="#1-有哪些数据类型" class="headerlink" title="1. 有哪些数据类型"></a>1. 有哪些数据类型</h4><ul>
+        <h3 id="一-变量和类型"><a href="#一-变量和类型" class="headerlink" title="一. 变量和类型"></a>一. 变量和类型</h3><h4 id="有哪些数据类型"><a href="#有哪些数据类型" class="headerlink" title="有哪些数据类型"></a>有哪些数据类型</h4><ul>
 <li>七种数据类型：Undefined、Null、Boolean、String、Number、Symbol、Object</li>
 <li>引用类型即对象类型，Object、Array、Date…<a id="more"></a>
-<h4 id="2-基本类型和引用类型的区别"><a href="#2-基本类型和引用类型的区别" class="headerlink" title="2. 基本类型和引用类型的区别"></a>2. 基本类型和引用类型的区别</h4>| 基本类型 | 引用类型 |<br>| —— | —— |<br>| 值是不可变的 | 值是可变的 |<br>| 比较是值的比较 | 比较是引用的比较 |<br>| 变量存放在栈内存 | 值是保存在对内存中的对象 | </li>
+</li>
 </ul>
-<h4 id="3-null和undefined的区别"><a href="#3-null和undefined的区别" class="headerlink" title="3. null和undefined的区别"></a>3. null和undefined的区别</h4><ul>
+<h4 id="基本类型和引用类型的区别"><a href="#基本类型和引用类型的区别" class="headerlink" title="基本类型和引用类型的区别"></a>基本类型和引用类型的区别</h4><table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>引用类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>值是不可变的</td>
+<td>值是可变的</td>
+</tr>
+<tr>
+<td>比较是值的比较</td>
+<td>比较是引用的比较</td>
+</tr>
+<tr>
+<td>变量存放在栈内存</td>
+<td>值是保存在堆内存中的对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="null和undefined的区别"><a href="#null和undefined的区别" class="headerlink" title="null和undefined的区别"></a>null和undefined的区别</h4><ul>
 <li>null表示“没有对象”，即该处不应该有值<ul>
 <li>作为函数参数，表示该函数的参数不是对象</li>
 <li>作为对象原型链的终点</li>
@@ -375,11 +400,11 @@
 </ul>
 </li>
 </ul>
-<h4 id="4-和-的区别"><a href="#4-和-的区别" class="headerlink" title="4. ==和===的区别"></a>4. ==和===的区别</h4><ul>
+<h4 id="和-的区别"><a href="#和-的区别" class="headerlink" title="==和===的区别"></a>==和===的区别</h4><ul>
 <li>==：值的比较（隐式类型转换）</li>
 <li>===： 不仅进行值的比较，还进行数据类型的比较</li>
 </ul>
-<h4 id="5-判断数据类型的方式"><a href="#5-判断数据类型的方式" class="headerlink" title="5. 判断数据类型的方式"></a>5. 判断数据类型的方式</h4><table>
+<h4 id="判断数据类型的方式"><a href="#判断数据类型的方式" class="headerlink" title="判断数据类型的方式"></a>判断数据类型的方式</h4><table>
 <thead>
 <tr>
 <th></th>
@@ -413,11 +438,11 @@
 </tr>
 </tbody>
 </table>
-<h4 id="6-判断是不是数组的方式"><a href="#6-判断是不是数组的方式" class="headerlink" title="6. 判断是不是数组的方式"></a>6. 判断是不是数组的方式</h4><ul>
+<h4 id="判断是不是数组的方式"><a href="#判断是不是数组的方式" class="headerlink" title="判断是不是数组的方式"></a>判断是不是数组的方式</h4><ul>
 <li>两种不准确的： <code>instanceof</code>和<code>constructor</code></li>
-<li>两种准确的：<code>Array.isArray()</code>和<code>Object.prototypt.toString()</code></li>
+<li>两种准确的：<code>Array.isArray()</code>和<code>Object.prototype.toString()</code></li>
 </ul>
-<h4 id="7-会被判断为true的类型-amp-falsy类型"><a href="#7-会被判断为true的类型-amp-falsy类型" class="headerlink" title="7. 会被判断为true的类型 &amp; falsy类型"></a>7. 会被判断为true的类型 &amp; falsy类型</h4><p>以下7种情况会被判断为false</p>
+<h4 id="会被判断为true的类型-amp-falsy类型"><a href="#会被判断为true的类型-amp-falsy类型" class="headerlink" title="会被判断为true的类型 &amp; falsy类型"></a>会被判断为true的类型 &amp; falsy类型</h4><p>以下7种情况会被判断为false</p>
 <ul>
 <li>false关键字</li>
 <li>0</li>
@@ -428,19 +453,19 @@
 <li>NaN</li>
 </ul>
 <p>其他都会被判断会true</p>
-<h4 id="8-怎么把“2”变为2"><a href="#8-怎么把“2”变为2" class="headerlink" title="8. 怎么把“2”变为2"></a>8. 怎么把“2”变为2</h4><ul>
+<h4 id="怎么把“2”变为2"><a href="#怎么把“2”变为2" class="headerlink" title="怎么把“2”变为2"></a>怎么把“2”变为2</h4><ul>
 <li>parseInt</li>
 <li>Number(“2”)</li>
 <li>/ * - </li>
 </ul>
-<h3 id="二-原型和原型链"><a href="#二-原型和原型链" class="headerlink" title="二. 原型和原型链"></a>二. 原型和原型链</h3><h4 id="9-原型和原型链"><a href="#9-原型和原型链" class="headerlink" title="9. 原型和原型链"></a>9. 原型和原型链</h4><h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><p>构造函数、原型和实例三者之间：</p>
+<h3 id="二-原型和原型链"><a href="#二-原型和原型链" class="headerlink" title="二. 原型和原型链"></a>二. 原型和原型链</h3><h4 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h4><h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><p>构造函数、原型和实例三者之间：</p>
 <ol>
 <li>创建一个函数的时候，会给这个函数创建一个prototype属性，这个属性指向函数的原型对象</li>
 <li>所有原型对象会自动获得一个constructor属性，这是一个指向prototype属性所在函数的指针</li>
 <li>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针，指向构造函数的原型对象</li>
 </ol>
 <h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><p>当试图得到一个对象的某个属性时候，如果这个对象本身没有这个属性，那么会去它的 <code>__proto__</code>中去寻找，如果 <code>obj.__proto__</code>也没有，会在<code>obj.__proto__.__proto__</code>中去找，直到<code>Object</code>和<code>Null</code></p>
-<h4 id="10-实现继承的方式"><a href="#10-实现继承的方式" class="headerlink" title="10. 实现继承的方式"></a>10. 实现继承的方式</h4><h5 id="原型链-1"><a href="#原型链-1" class="headerlink" title="原型链"></a>原型链</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SubType.prototype = new SuperType();</div></pre></td></tr></table></figure>
+<h4 id="实现继承的方式"><a href="#实现继承的方式" class="headerlink" title="实现继承的方式"></a>实现继承的方式</h4><h5 id="原型链-1"><a href="#原型链-1" class="headerlink" title="原型链"></a>原型链</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SubType.prototype = new SuperType();</div></pre></td></tr></table></figure>
 <p>缺点：引用类型的值的原型的问题、不能向超类型的构造函数中传递参数</p>
 <h5 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SuperType.call(this) //构造函数里</div></pre></td></tr></table></figure>
 <p>缺点：方法都在构造函数中定义，无法函数复用，方法不能传</p>
@@ -451,13 +476,13 @@
 <h5 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h5><p>创建一个仅用于封装继承过程的函数，以某种方式增强对象<br>缺点：不能函数复用</p>
 <h5 id="寄生组合式继承-最理想"><a href="#寄生组合式继承-最理想" class="headerlink" title="寄生组合式继承  最理想"></a>寄生组合式继承  最理想</h5><p>构造函数：继承属性<br>原型链的混成形式继承方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function inheritPrototype(subType, superType) &#123;</div><div class="line">  var prototype = Object.create(superType.prototype) // 创建超类型的副本</div><div class="line">  prototype.constructor = subType;  // 为副本添加constructor</div><div class="line">  subType.prototype = prototype;  // 将副本赋给子类型的原型</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>优点：只调用一次SuperType构造函数，原型链保持不变</p>
-<h4 id="11-new操作符做了什么"><a href="#11-new操作符做了什么" class="headerlink" title="11. new操作符做了什么"></a>11. new操作符做了什么</h4><ol>
+<h4 id="new操作符做了什么"><a href="#new操作符做了什么" class="headerlink" title="new操作符做了什么"></a>new操作符做了什么</h4><ol>
 <li>创建一个新对象（object）</li>
 <li>新对象隐式原型链接到构造函数显式原型（<strong>proto</strong>指向prototype）</li>
 <li>执行构造函数并将构造函数作用域指向新对象（this指向新对象）</li>
 <li>返回新对象</li>
 </ol>
-<h3 id="三-作用域和闭包"><a href="#三-作用域和闭包" class="headerlink" title="三. 作用域和闭包"></a>三. 作用域和闭包</h3><h4 id="12-作用域"><a href="#12-作用域" class="headerlink" title="12. 作用域"></a>12. 作用域</h4><ol>
+<h3 id="三-作用域和闭包"><a href="#三-作用域和闭包" class="headerlink" title="三. 作用域和闭包"></a>三. 作用域和闭包</h3><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><ol>
 <li>全局作用域：在代码中任何地方都能访问到的对象<br>有三种情况：</li>
 </ol>
 <ul>
@@ -469,7 +494,111 @@
 <li>函数作用域：函数内</li>
 <li>块级作用域：let 和 const， 所声明的变量在指定块的作用域外无法被访问</li>
 </ol>
-<h4 id="13-函数声明提升和变量声明提升"><a href="#13-函数声明提升和变量声明提升" class="headerlink" title="13. 函数声明提升和变量声明提升"></a>13. 函数声明提升和变量声明提升</h4><h4 id="14-this的指向"><a href="#14-this的指向" class="headerlink" title="14. this的指向"></a>14. this的指向</h4><h4 id="15-call和apply的区别"><a href="#15-call和apply的区别" class="headerlink" title="15. call和apply的区别"></a>15. call和apply的区别</h4><h4 id="16-闭包"><a href="#16-闭包" class="headerlink" title="16. 闭包"></a>16. 闭包</h4><h4 id="17-堆栈溢出和尾递归"><a href="#17-堆栈溢出和尾递归" class="headerlink" title="17. 堆栈溢出和尾递归"></a>17. 堆栈溢出和尾递归</h4><h4 id="18-内存泄漏"><a href="#18-内存泄漏" class="headerlink" title="18. 内存泄漏"></a>18. 内存泄漏</h4>
+<h4 id="函数声明提升和变量声明提升"><a href="#函数声明提升和变量声明提升" class="headerlink" title="函数声明提升和变量声明提升"></a>函数声明提升和变量声明提升</h4><ul>
+<li>同名情况下，函数的优先级大于变量的优先级</li>
+<li><p>变量声明提升</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(a); //undefined</div><div class="line">var a = 10;</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数声明提升</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(f1);  //function f1() &#123; &#125;;</div><div class="line">function f1() &#123; &#125;; //函数声明</div><div class="line">console.log(f2);  //undefined</div><div class="line">var f2 = function() &#123; &#125;; //函数表达式</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h4><ul>
+<li>this的值是在执行的时候才能确认，定义的时候不能确认<br><img src="/2020/07/14/一定要知道的js知识点/寻找函数foo中的this.png" alt="image"></li>
+</ul>
+<h4 id="bind、call和apply的区别"><a href="#bind、call和apply的区别" class="headerlink" title="bind、call和apply的区别"></a>bind、call和apply的区别</h4><ul>
+<li>这三个函数存在的意义是：改变函数执行的上下文（即运行时候this的指向）</li>
+<li>call和apply改变了函数的this之后便执行该函数，而bind则是改变了上下文之后返回一个函数，不会马上执行，需要调用</li>
+<li>call和apply的区别是参数<ul>
+<li>第一个参数都是改变上下文的对象</li>
+<li>call从第二个参数开始以参数列表的形式展现，而apply把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数</li>
+</ul>
+</li>
+</ul>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><ol>
+<li>js在函数内部可以直接读取全局变量，但是在函数外部无法读取函数内的局部变量</li>
+<li>闭包可以解决这个问题，闭包就是可以读取其他函数内部变量的函数，是定义在一个函数内部的函数</li>
+<li><p>内部函数作为一个全局变量，会一直保存在内存中，而外部的函数使用了这个内部函数，所以也不会被销毁。所以每创建一个闭包，就会在内存中生成一个外部函数的成员变量的副本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">  var n = 999;</div><div class="line">  function f2() &#123;</div><div class="line">    alert(n)</div><div class="line">  &#125;</div><div class="line">  return f2; //f2就是一个闭包</div><div class="line">&#125;</div><div class="line">var result = f1();</div><div class="line">result(); //999</div></pre></td></tr></table></figure>
+</li>
+<li><p>闭包的应用场景</p>
+<ul>
+<li><p>模仿块级作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function A(num) &#123;</div><div class="line">  for(var i=0;i&lt;num;i++) &#123;  &#125;</div><div class="line">  console.log(i)  //输出num</div><div class="line">&#125;</div><div class="line">function A1(num) &#123;</div><div class="line">  (function()&#123;</div><div class="line">    for(var i=0;i&lt;num;i++) &#123;  &#125;</div><div class="line">  &#125;)()</div><div class="line">  console.log(i)  //输出ReferenceError(i没有定义），匿名立即执行函数在这里就是闭包</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>存储变量，把一些不常变动且计算复杂的值存储起来，节省每次访问的时间</p>
+</li>
+<li>封装私有变量</li>
+</ul>
+</li>
+<li>常见错误，在循环中使用闭包</li>
+</ol>
+<h4 id="堆栈溢出和尾递归"><a href="#堆栈溢出和尾递归" class="headerlink" title="堆栈溢出和尾递归"></a>堆栈溢出和尾递归</h4><ul>
+<li>堆栈溢出：每次执行js代码时，都会分配一定尺寸的栈空间，每次方法调用时候都会在栈里存储一定信息（参数、局部变量、返回值）等，当向数据库写了过多的数据，导致数据越界，覆盖别的数据，就是堆栈溢出。产生原因就是过多的函数调用，一般在递归中产生。</li>
+<li>尾调用：某个函数的最后一步是调用另一个函数 <code>function f(x) {return g(x); }</code></li>
+<li>尾递归：函数尾调用自身，由于只存在一个调用记录，所以不会发生栈溢出的错误；怎么做到尾递归？把所有用到的内部变量写成函数的参数。</li>
+</ul>
+<h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><ul>
+<li>不再使用的内存区域没有被回收，导致这块内存被浪费</li>
+<li>产生原因：全局变量、闭包、dom引用（比如table里的td引用）、被遗忘的计时器或者回调函数</li>
+<li>防止：避免使用全局变量、及时清理、使用非匿名函数来引用局部变量…</li>
+</ul>
+<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ol>
+<li>commonJS：主要用于服务端变成，加载模块是同步的，不适合在浏览器环境，因为浏览器资源是异步加载的。</li>
+<li>AMD：在浏览器环境中，可以并行加载多个模块，依赖前置（模块提前加载并且执行）</li>
+<li>CMD：与AMD相似，用于浏览器编程，依赖后置（模块懒加载再执行），模块的加载逻辑偏重</li>
+<li>ES6：可取代上面三者，成为浏览器和服务器通用的模块解决方案</li>
+</ol>
+<h3 id="四-执行机制"><a href="#四-执行机制" class="headerlink" title="四. 执行机制"></a>四. 执行机制</h3><h4 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h4><p>avaScript引擎负责解析，执行JavaScript代码，但它并不能单独运行，通常都得有一个宿主环境，一般如浏览器或Node服务器，这些宿主环境创建主线程，提供一种机制，调用JavaScript引擎完成多个JavaScript代码块的调度，执行（是的，JavaScript代码都是按块执行的），并且循环不断，这种机制就称为事件循环。</p>
+<ol>
+<li>同步运行</li>
+<li>注册回调，不执行，通知线程触发的时候插入任务队列</li>
+<li>继续执行同步代码</li>
+<li>执行完后，检测是否有可用的回调，有就执行，没有就下一个事件循环<br><img src="/2020/07/14/一定要知道的js知识点/事件循环.png" alt="image"></li>
+</ol>
+<h4 id="promise对象"><a href="#promise对象" class="headerlink" title="promise对象"></a>promise对象</h4><ol>
+<li>Promise构造函数接受一个函数作为参数，这个传入的函数有两个参数，分别是两个函数resolve和reject <code>new Promise(function(resolve,reject){ } )</code>，resolve将promise的状态由未成功变为成功，并且将异步操作的结果作为参数传递过去，reject将状态由未失败转为失败，在异步操作失败时候调用，将异步操作报出的错误作为参数传递过去。</li>
+<li>实例创建完成后，调用then方法，可以接受两个回调函数作为参数，第一个是状态变为resolved的调用，第二个是状态变为rejected的调用，两个函数都接受promise对象传出的值作为参数</li>
+<li>promise对象不受外界的影响，初始状态为pending，结果的状态为resolve和reject，状态只能由pending变为另外两种，并且改变后不可逆也不可再修改。</li>
+<li>then方法下一次的输入需要上一次的输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let promise = new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  reject(&quot;拒绝了&quot;)</div><div class="line">&#125;)</div><div class="line">promise.then((data) =&gt; &#123;</div><div class="line">  console.log(&apos;success&apos; + data)</div><div class="line">&#125;, (error) =&gt; &#123;</div><div class="line">  console.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h4><ol>
+<li>async函数和生成器函数极为相似，只是将之前的*变成了async，yield变成了await，其实它就是一个能够自动执行的generator函数，不需要再通过<code>it.next()</code>来控制生成器函数的暂停与启动。</li>
+<li>await帮我们做到了在同步阻塞代码的同时还能够监听promise对象的决议，一旦promise决议，原本暂停执行的async函数就会恢复执行，这个时候如果决议是resolve，那么返回的结果就是resolve的结果，如果决议是reject，必须用try…catch…来捕获这个错误</li>
+<li>await命令只能用在async函数中，如果用在普通函数，就会报错</li>
+</ol>
+<h4 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h4><ul>
+<li>同步代码在执行完成后会检查是否有异步任务完成，并执行对应的回调。异步任务包括宏任务和微任务，微任务在宏任务之前执行。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务</th>
+<th>微任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setTimeout</td>
+<td>process.nextTick (node)</td>
+</tr>
+<tr>
+<td>setInterval</td>
+<td>MutationObserver</td>
+</tr>
+<tr>
+<td>setImmediate</td>
+<td>Promise.then catch finally</td>
+</tr>
+<tr>
+<td>requestAnimationFrame</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(() =&gt; console.log(&quot;4&quot;));</div><div class="line">new Promise( resolve =&gt; &#123;</div><div class="line">  resolve();</div><div class="line">  console.log(&quot;1&quot;);</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&quot;3&quot;);</div><div class="line">&#125;)</div><div class="line">console.log(&quot;2&quot;);  // 1 2 3 4</div></pre></td></tr></table></figure>
+<h3 id="五-语法和API"><a href="#五-语法和API" class="headerlink" title="五. 语法和API"></a>五. 语法和API</h3>
       
     </div>
     
@@ -601,7 +730,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -671,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-变量和类型"><span class="nav-number">1.</span> <span class="nav-text">一. 变量和类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-有哪些数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">1. 有哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本类型和引用类型的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 基本类型和引用类型的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-null和undefined的区别"><span class="nav-number">1.3.</span> <span class="nav-text">3. null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-和-的区别"><span class="nav-number">1.4.</span> <span class="nav-text">4. ==和===的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-判断数据类型的方式"><span class="nav-number">1.5.</span> <span class="nav-text">5. 判断数据类型的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-判断是不是数组的方式"><span class="nav-number">1.6.</span> <span class="nav-text">6. 判断是不是数组的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-会被判断为true的类型-amp-falsy类型"><span class="nav-number">1.7.</span> <span class="nav-text">7. 会被判断为true的类型 & falsy类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-怎么把“2”变为2"><span class="nav-number">1.8.</span> <span class="nav-text">8. 怎么把“2”变为2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-原型和原型链"><span class="nav-number">2.</span> <span class="nav-text">二. 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-原型和原型链"><span class="nav-number">2.1.</span> <span class="nav-text">9. 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型"><span class="nav-number">2.1.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链"><span class="nav-number">2.1.2.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-实现继承的方式"><span class="nav-number">2.2.</span> <span class="nav-text">10. 实现继承的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#借用构造函数"><span class="nav-number">2.2.2.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组合继承：原型链-构造函数-最常用"><span class="nav-number">2.2.3.</span> <span class="nav-text">组合继承：原型链 + 构造函数 最常用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型式继承"><span class="nav-number">2.2.4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生式继承"><span class="nav-number">2.2.5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生组合式继承-最理想"><span class="nav-number">2.2.6.</span> <span class="nav-text">寄生组合式继承  最理想</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-new操作符做了什么"><span class="nav-number">2.3.</span> <span class="nav-text">11. new操作符做了什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-作用域和闭包"><span class="nav-number">3.</span> <span class="nav-text">三. 作用域和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-作用域"><span class="nav-number">3.1.</span> <span class="nav-text">12. 作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-函数声明提升和变量声明提升"><span class="nav-number">3.2.</span> <span class="nav-text">13. 函数声明提升和变量声明提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-this的指向"><span class="nav-number">3.3.</span> <span class="nav-text">14. this的指向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-call和apply的区别"><span class="nav-number">3.4.</span> <span class="nav-text">15. call和apply的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-闭包"><span class="nav-number">3.5.</span> <span class="nav-text">16. 闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-堆栈溢出和尾递归"><span class="nav-number">3.6.</span> <span class="nav-text">17. 堆栈溢出和尾递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-内存泄漏"><span class="nav-number">3.7.</span> <span class="nav-text">18. 内存泄漏</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-变量和类型"><span class="nav-number">1.</span> <span class="nav-text">一. 变量和类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有哪些数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">有哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型和引用类型的区别"><span class="nav-number">1.2.</span> <span class="nav-text">基本类型和引用类型的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null和undefined的区别"><span class="nav-number">1.3.</span> <span class="nav-text">null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和-的区别"><span class="nav-number">1.4.</span> <span class="nav-text">==和===的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断数据类型的方式"><span class="nav-number">1.5.</span> <span class="nav-text">判断数据类型的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是不是数组的方式"><span class="nav-number">1.6.</span> <span class="nav-text">判断是不是数组的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会被判断为true的类型-amp-falsy类型"><span class="nav-number">1.7.</span> <span class="nav-text">会被判断为true的类型 & falsy类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么把“2”变为2"><span class="nav-number">1.8.</span> <span class="nav-text">怎么把“2”变为2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-原型和原型链"><span class="nav-number">2.</span> <span class="nav-text">二. 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型和原型链"><span class="nav-number">2.1.</span> <span class="nav-text">原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型"><span class="nav-number">2.1.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链"><span class="nav-number">2.1.2.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现继承的方式"><span class="nav-number">2.2.</span> <span class="nav-text">实现继承的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#借用构造函数"><span class="nav-number">2.2.2.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组合继承：原型链-构造函数-最常用"><span class="nav-number">2.2.3.</span> <span class="nav-text">组合继承：原型链 + 构造函数 最常用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型式继承"><span class="nav-number">2.2.4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生式继承"><span class="nav-number">2.2.5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寄生组合式继承-最理想"><span class="nav-number">2.2.6.</span> <span class="nav-text">寄生组合式继承  最理想</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new操作符做了什么"><span class="nav-number">2.3.</span> <span class="nav-text">new操作符做了什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-作用域和闭包"><span class="nav-number">3.</span> <span class="nav-text">三. 作用域和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域"><span class="nav-number">3.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明提升和变量声明提升"><span class="nav-number">3.2.</span> <span class="nav-text">函数声明提升和变量声明提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this的指向"><span class="nav-number">3.3.</span> <span class="nav-text">this的指向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind、call和apply的区别"><span class="nav-number">3.4.</span> <span class="nav-text">bind、call和apply的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">3.5.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆栈溢出和尾递归"><span class="nav-number">3.6.</span> <span class="nav-text">堆栈溢出和尾递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">3.7.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">3.8.</span> <span class="nav-text">模块化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-执行机制"><span class="nav-number">4.</span> <span class="nav-text">四. 执行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件循环"><span class="nav-number">4.1.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise对象"><span class="nav-number">4.2.</span> <span class="nav-text">promise对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#async-await"><span class="nav-number">4.3.</span> <span class="nav-text">async/await</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宏任务和微任务"><span class="nav-number">4.4.</span> <span class="nav-text">宏任务和微任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-语法和API"><span class="nav-number">5.</span> <span class="nav-text">五. 语法和API</span></a></li></ol></div>
             
 
           </div>

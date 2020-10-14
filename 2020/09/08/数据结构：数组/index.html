@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="QQCR">
 <meta property="og:description" content="两数之和 给一个整数数组nums和目标值target，找出和为目标值的两个整数的下标 [2,7,11,15] 9 =&amp;gt; [0,1]  思路： 使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。 每次遍历在map中查找是否有key为target-nums[i]的值 如果取到，则条件成立，返回 如果没有取到，则将当前值为key，下标作为value存入m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-07T08:16:33.856Z">
+<meta property="og:updated_time" content="2020-10-14T11:01:23.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构：数组">
 <meta name="twitter:description" content="两数之和 给一个整数数组nums和目标值target，找出和为目标值的两个整数的下标 [2,7,11,15] 9 =&amp;gt; [0,1]  思路： 使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。 每次遍历在map中查找是否有key为target-nums[i]的值 如果取到，则条件成立，返回 如果没有取到，则将当前值为key，下标作为value存入m">
@@ -364,10 +364,10 @@
 <li>使用一个map将遍历过的数字存起来，{key: value}中，key是值，value是下标。</li>
 <li>每次遍历在map中查找是否有key为<code>target-nums[i]</code>的值</li>
 <li>如果取到，则条件成立，返回</li>
-<li>如果没有取到，则将当前值为key，下标作为value存入map<a id="more"></a>
-<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function twoSum(nums, target) &#123;</div><div class="line">  let map = &#123;&#125;;</div><div class="line">  for (let i=0; i&lt;nums.length; i++) &#123;</div><div class="line">    if(map[target-nums[i]] !== undefined) &#123;</div><div class="line">      return [map[target - nums[i]], i];</div><div class="line">    &#125; </div><div class="line">    else &#123;</div><div class="line">      map[nums[i]] = i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return [];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>如果没有取到，则将当前值为key，下标作为value存入map</li>
 </ol>
+<a id="more"></a>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function twoSum(nums, target) &#123;</div><div class="line">  let map = &#123;&#125;;</div><div class="line">  for (let i=0; i&lt;nums.length; i++) &#123;</div><div class="line">    if(map[target-nums[i]] !== undefined) &#123;</div><div class="line">      return [map[target - nums[i]], i];</div><div class="line">    &#125; </div><div class="line">    else &#123;</div><div class="line">      map[nums[i]] = i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return [];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">  public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</div><div class="line">    for(int i=0; i&lt;nums.length;i++) &#123;</div><div class="line">      int complement = target - nums[i];</div><div class="line">      if(map.containsKey(complement)) &#123;</div><div class="line">        return new int[] &#123; map.get(complement), i &#125;;</div><div class="line">      &#125;</div><div class="line">      map.put(nums[i], i);</div><div class="line">    &#125;</div><div class="line">    throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h3><ul>
 <li>nums中存在三个元素a+b+c=0</li>
@@ -514,7 +514,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
