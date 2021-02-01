@@ -361,6 +361,9 @@
         
           <p><strong><em> 做毕设学了点东西系列 </em></strong> </p>
 <p>之前已经用antdpro做了前端，就直接把后端部分在前端目录下加了一个server文件夹，npm包也直接安装在了目录下，省去了很多步骤（偷懒了</p>
+<h2 id="koa中间件"><a href="#koa中间件" class="headerlink" title="koa中间件"></a>koa中间件</h2><p>先来学习一下koa的一些理论<br>koa的一个中间件是这样定义的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">async function middleware(ctx, next) &#123;</div><div class="line">  // xxx</div><div class="line">  await next();</div><div class="line">  // xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个参数是Koa Context，是所有的中间件和请求处理函数传递的内容，封装了<code>request</code>和<code>response</code>，可以通过<code>ctx.request</code>和<code>ctx.response</code>获取，常用属性如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctx.url  // 相当于ctx.request.url</div><div class="line">ctx.body // ctx.response.body</div><div class="line">ctx.status // ctx.response.status</div></pre></td></tr></table></figure></p>
+<p>第二个参数是<code>next</code>函数，用来把控制权交给下一个中间件。与Express不同的是，这里的<code>next</code>函数返回的是一个Promise，这个Promise完成后，就会去执行<code>next</code>函数后面的内容，也就是将中间件的执行拆分为两个阶段（<code>next</code>前面和<code>next</code>后面）</p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>├── server<br>│   ├── config // 配置<br>│   ├── routes // 定义路由<br>│   ├── controllers // 逻辑处理<br>│   ├── service // 数据库接口方法<br>│   ├──models // 数据库表结构<br>│   ├──utils // 公用方法<br>│   └── app.js // 入口文件<br>…<br></p>
           <!--noindex-->
           <div class="post-button text-center">
