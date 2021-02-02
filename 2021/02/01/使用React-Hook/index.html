@@ -75,7 +75,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="javascript,react," />
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
-<meta name="keywords" content="javascript">
+<meta name="description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
+<meta name="keywords" content="javascript,react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="learn js">
-<meta property="og:url" content="http://QQCR.github.io/2017/08/22/learn-js/index.html">
+<meta property="og:title" content="使用React Hook">
+<meta property="og:url" content="http://QQCR.github.io/2021/02/01/使用React-Hook/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
+<meta property="og:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-14T11:02:32.871Z">
+<meta property="og:updated_time" content="2021-02-02T03:07:49.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="learn js">
-<meta name="twitter:description" content="和数组有关的4个函数： pop()：移除最后一个 push(xxx)：加入到最后一个 shift()：移除第一个 unshift()：加入到第一个">
+<meta name="twitter:title" content="使用React Hook">
+<meta name="twitter:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://QQCR.github.io/2017/08/22/learn-js/"/>
+  <link rel="canonical" href="http://QQCR.github.io/2021/02/01/使用React-Hook/"/>
 
 
 
@@ -140,7 +140,7 @@
   <meta name="google-site-verification" content="udLwf1XjYsAeTqHOKafjPvwSeAnGrr9GrqEJ_MFjiw4" />
 
 
-  <title>learn js | QQCR</title>
+  <title>使用React Hook | QQCR</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2017/08/22/learn-js/">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2021/02/01/使用React-Hook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="QinChaoru">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">learn js</h1>
+          <h1 class="post-title" itemprop="name headline">使用React Hook</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T15:51:41+08:00">
-                2017-08-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-01T18:11:39+08:00">
+                2021-02-01
               </time>
             
 
@@ -356,22 +356,19 @@
       
 
       
-        <h4 id="和数组有关的4个函数："><a href="#和数组有关的4个函数：" class="headerlink" title="和数组有关的4个函数："></a>和数组有关的4个函数：</h4><ul>
-<li>pop()：移除最后一个</li>
-<li>push(xxx)：加入到最后一个</li>
-<li>shift()：移除第一个</li>
-<li>unshift()：加入到第一个<a id="more"></a>
-</li>
-</ul>
-<h4 id="全局变量："><a href="#全局变量：" class="headerlink" title="全局变量："></a>全局变量：</h4><ul>
-<li>如果在所有函数以外定义全局变量 用var</li>
-<li>如果在某个函数中定义想让另一个函数也可以使用（全局） 不加var</li>
-<li>如果局部变量和全局变量名称相同 局部变量优先</li>
-</ul>
-<h4 id="比较大小："><a href="#比较大小：" class="headerlink" title="比较大小："></a>比较大小：</h4><ul>
-<li>相等(转换类型 &gt;和&lt;也符合)：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1   ==  1    // true</div><div class="line">1   ==  2    // false</div><div class="line">1   == &apos;1&apos;   // true</div><div class="line">&quot;3&quot;  ==  3    // true</div><div class="line"></div><div class="line">1 != 2      // true</div><div class="line">1 != &quot;1&quot;    // false</div><div class="line">1 != &apos;1&apos;    // false</div><div class="line">1 != true   // false</div><div class="line">0 != false  // false</div><div class="line"></div><div class="line">//严格相等：</div><div class="line">3 === 3   // true</div><div class="line">3 === &apos;3&apos; // false</div><div class="line">3 !== 3   // false</div><div class="line">3 !== &apos;3&apos; // true</div><div class="line">4 !== 3   // true</div></pre></td></tr></table></figure>
-</li>
-</ul>
+        <p><strong><em> 做毕设学了点东西系列 </em></strong> </p>
+<p>好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。</p>
+<h2 id="函数式组件和Hook"><a href="#函数式组件和Hook" class="headerlink" title="函数式组件和Hook"></a>函数式组件和Hook</h2><p>一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而Hook就是为了我们在不使用函数式组件的时候，仍然可以使用类组件中的state或者其他的特性。</p>
+<h3 id="写一个函数式组件"><a href="#写一个函数式组件" class="headerlink" title="写一个函数式组件"></a>写一个函数式组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const TaskDetail = () =&gt; &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;hello!&lt;/div&gt;</div><div class="line">  ); // return的就是在类组件中render的内容</div><div class="line">&#125;</div><div class="line">export default TaskDetail;</div></pre></td></tr></table></figure>
+<h3 id="使用state-hook"><a href="#使用state-hook" class="headerlink" title="使用state hook"></a>使用state hook</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import React, &#123; useState &#125; from &apos;react&apos;;</div><div class="line">// 定义一个叫taskDetail的变量，初始值设置为空对象，在后面的代码中就可以使用setTaskDetail来更新这个state</div><div class="line">const [taskDetail, setTaskDetail] = useState(&#123;&#125;);</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="使用effect-hook获取api数据"><a href="#使用effect-hook获取api数据" class="headerlink" title="使用effect hook获取api数据"></a>使用effect hook获取api数据</h3><p>在类组件中想要获取数据渲染的时候，一般会在生命周期中调用api，比如一个简单的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">componentDidMount() &#123;</div><div class="line">  const id = this.props.match.params.id;</div><div class="line">  const result = queryData(id);</div><div class="line">  this.setState(&#123;</div><div class="line">    taskDetail: result</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里就是使用了url中传过来的id，获取数据后设置<code>state</code>，关于<code>setState</code>的更新时机又有一些需要注意的点。effect hook做的事情很类似于<code>componentDidMount</code>和<code>componentDidUpdate</code>可以完成的事情，实现各种不同的副作用（数据获取、设置订阅、手动更改DOM等）。在React文档里，详细讲述了无需清除和需要清除的的区别（返回函数与否）。下面举例的是一个无需清除的异步调用请求方法的effect。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const TaskDetail = (props) =&gt; &#123;</div><div class="line">  const [taskDetail, setTaskDetail] = useState(&#123;&#125;); </div><div class="line"></div><div class="line">  useEffect(() =&gt; &#123;</div><div class="line">    const id = props.match.params.id;</div><div class="line">    async function fetchData() &#123;</div><div class="line">      const detail = await queryTaskDetail(id);</div><div class="line">      setTaskDetail(detail);</div><div class="line">    &#125;</div><div class="line">    fetchData();</div><div class="line">  &#125;,[props.match.params.id]);</div><div class="line">  return (</div><div class="line">    // ...</div><div class="line">  ); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里使用effect的时候有几个注意的点：</p>
+<ol>
+<li>如果使用<code>async</code>方法的话，不能直接加在<code>useEffect(async () =&gt; {</code>这样，而是在内部写一个方法然后再调用</li>
+<li><code>useEffect</code>的第二个可选参数定义了只有这个值发生变化的是才去调用这个effect，否则的话就跳过这个effect，实现了性能的优化</li>
+</ol>
 
       
     </div>
@@ -391,6 +388,8 @@
           
             <a href="/tags/javascript/" rel="tag"># javascript</a>
           
+            <a href="/tags/react/" rel="tag"># react</a>
+          
         </div>
       
 
@@ -402,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/21/hexo文章插入图片/" rel="next" title="hexo文章插入图片">
-                <i class="fa fa-chevron-left"></i> hexo文章插入图片
+              <a href="/2021/01/31/koa-mysql做一个后端系统/" rel="next" title="koa + mysql做一个后端系统">
+                <i class="fa fa-chevron-left"></i> koa + mysql做一个后端系统
               </a>
             
           </div>
@@ -411,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/22/js读取对象/" rel="prev" title="js读取对象">
-                js读取对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#和数组有关的4个函数："><span class="nav-number">1.</span> <span class="nav-text">和数组有关的4个函数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量："><span class="nav-number">2.</span> <span class="nav-text">全局变量：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较大小："><span class="nav-number">3.</span> <span class="nav-text">比较大小：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式组件和Hook"><span class="nav-number">1.</span> <span class="nav-text">函数式组件和Hook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个函数式组件"><span class="nav-number">1.1.</span> <span class="nav-text">写一个函数式组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用state-hook"><span class="nav-number">1.2.</span> <span class="nav-text">使用state hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用effect-hook获取api数据"><span class="nav-number">1.3.</span> <span class="nav-text">使用effect hook获取api数据</span></a></li></ol></li></ol></div>
             
 
           </div>
