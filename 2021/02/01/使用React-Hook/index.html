@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
+<meta name="description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。记录了一下最基本的操作。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部">
 <meta name="keywords" content="javascript,react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用React Hook">
 <meta property="og:url" content="http://QQCR.github.io/2021/02/01/使用React-Hook/index.html">
 <meta property="og:site_name" content="QQCR">
-<meta property="og:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
+<meta property="og:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。记录了一下最基本的操作。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-02T03:07:49.048Z">
+<meta property="og:updated_time" content="2021-02-03T09:50:19.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用React Hook">
-<meta name="twitter:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而H">
+<meta name="twitter:description" content="做毕设学了点东西系列   好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。记录了一下最基本的操作。 函数式组件和Hook一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部">
 
 
 
@@ -357,8 +357,8 @@
 
       
         <p><strong><em> 做毕设学了点东西系列 </em></strong> </p>
-<p>好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。</p>
-<h2 id="函数式组件和Hook"><a href="#函数式组件和Hook" class="headerlink" title="函数式组件和Hook"></a>函数式组件和Hook</h2><p>一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而Hook就是为了我们在不使用函数式组件的时候，仍然可以使用类组件中的state或者其他的特性。</p>
+<p>好久没写React了，上次写React还在坚持类组件的写法，有点既然还能用就安于现状的感觉。今天本来只是想把之前一周速成的前端代码和后端联调通，但是发现类组件果然还是有缺点，生命周期和state改来改去的，想想还是埋头重读React的文档改成函数式组件吧。记录了一下最基本的操作。</p>
+<h2 id="函数式组件和Hook"><a href="#函数式组件和Hook" class="headerlink" title="函数式组件和Hook"></a>函数式组件和Hook</h2><p>一个函数就是一个组件，这个函数组件没有生命周期函数，没有this和内部状态（state）。而Hook就是为了我们在使用函数式组件的时候，仍然可以使用类组件中的state或者其他的特性。</p>
 <h3 id="写一个函数式组件"><a href="#写一个函数式组件" class="headerlink" title="写一个函数式组件"></a>写一个函数式组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const TaskDetail = () =&gt; &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;hello!&lt;/div&gt;</div><div class="line">  ); // return的就是在类组件中render的内容</div><div class="line">&#125;</div><div class="line">export default TaskDetail;</div></pre></td></tr></table></figure>
 <h3 id="使用state-hook"><a href="#使用state-hook" class="headerlink" title="使用state hook"></a>使用state hook</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import React, &#123; useState &#125; from &apos;react&apos;;</div><div class="line">// 定义一个叫taskDetail的变量，初始值设置为空对象，在后面的代码中就可以使用setTaskDetail来更新这个state</div><div class="line">const [taskDetail, setTaskDetail] = useState(&#123;&#125;);</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -366,9 +366,11 @@
 <p>这里就是使用了url中传过来的id，获取数据后设置<code>state</code>，关于<code>setState</code>的更新时机又有一些需要注意的点。effect hook做的事情很类似于<code>componentDidMount</code>和<code>componentDidUpdate</code>可以完成的事情，实现各种不同的副作用（数据获取、设置订阅、手动更改DOM等）。在React文档里，详细讲述了无需清除和需要清除的的区别（返回函数与否）。下面举例的是一个无需清除的异步调用请求方法的effect。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const TaskDetail = (props) =&gt; &#123;</div><div class="line">  const [taskDetail, setTaskDetail] = useState(&#123;&#125;); </div><div class="line"></div><div class="line">  useEffect(() =&gt; &#123;</div><div class="line">    const id = props.match.params.id;</div><div class="line">    async function fetchData() &#123;</div><div class="line">      const detail = await queryTaskDetail(id);</div><div class="line">      setTaskDetail(detail);</div><div class="line">    &#125;</div><div class="line">    fetchData();</div><div class="line">  &#125;,[props.match.params.id]);</div><div class="line">  return (</div><div class="line">    // ...</div><div class="line">  ); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这里使用effect的时候有几个注意的点：</p>
 <ol>
-<li>如果使用<code>async</code>方法的话，不能直接加在<code>useEffect(async () =&gt; {</code>这样，而是在内部写一个方法然后再调用</li>
+<li>如果使用<code>async</code>方法的话，不能直接加在<code>useEffect(async () =&gt; {}</code>这样，而是在内部写一个方法然后再调用</li>
 <li><code>useEffect</code>的第二个可选参数定义了只有这个值发生变化的是才去调用这个effect，否则的话就跳过这个effect，实现了性能的优化</li>
 </ol>
+<h3 id="使用ref-hook获取dom元素"><a href="#使用ref-hook获取dom元素" class="headerlink" title="使用ref hook获取dom元素"></a>使用ref hook获取dom元素</h3><p>React的Refs提供了一种方式让我们可以访问DOM节点，一般发生在强制修改组件的情况而不是正常的父子props数据流渲染的时候。<br><code>useRef</code>返回一个可变的ref对象，它的<code>current</code>属性被初始化为传入的参数，返回的ref对象在组件的整个生命周期内保持不变。在每次渲染的时候返回的是同一个ref对象。当ref对象的内容发生变化的时候，不会引起组件的重新渲染。如果需要这么做的话（根据ref的变化运行一些代码），则需要使用回调ref（<code>useCallback</code>）来实现。<br>我的项目里用到的是实现局部table的刷新：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const actionRef = useRef(); // 初始化ref</div><div class="line"></div><div class="line">&lt;ProTable</div><div class="line">  actionRef=&#123;actionRef&#125; // 挂载到这个table上</div><div class="line">  ...</div><div class="line">  /&gt;</div><div class="line"></div><div class="line">actionRef.current.reload(); // 一些操作后进行更新</div></pre></td></tr></table></figure></p>
+<p>比如刷新的时候</p>
 
       
     </div>
@@ -410,6 +412,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/02/02/Docker基本概念/" rel="prev" title="Docker基本概念">
+                Docker基本概念 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -480,7 +486,7 @@
                alt="QinChaoru" />
           <p class="site-author-name" itemprop="name">QinChaoru</p>
            
-              <p class="site-description motion-element" itemprop="description">忠于自己，保持热爱，奔赴山海</p>
+              <p class="site-description motion-element" itemprop="description">专注一下</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -488,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -499,7 +505,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -510,7 +516,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -569,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式组件和Hook"><span class="nav-number">1.</span> <span class="nav-text">函数式组件和Hook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个函数式组件"><span class="nav-number">1.1.</span> <span class="nav-text">写一个函数式组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用state-hook"><span class="nav-number">1.2.</span> <span class="nav-text">使用state hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用effect-hook获取api数据"><span class="nav-number">1.3.</span> <span class="nav-text">使用effect hook获取api数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式组件和Hook"><span class="nav-number">1.</span> <span class="nav-text">函数式组件和Hook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个函数式组件"><span class="nav-number">1.1.</span> <span class="nav-text">写一个函数式组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用state-hook"><span class="nav-number">1.2.</span> <span class="nav-text">使用state hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用effect-hook获取api数据"><span class="nav-number">1.3.</span> <span class="nav-text">使用effect hook获取api数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ref-hook获取dom元素"><span class="nav-number">1.4.</span> <span class="nav-text">使用ref hook获取dom元素</span></a></li></ol></li></ol></div>
             
 
           </div>
