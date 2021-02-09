@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="服务端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Redis基本概念最基本Redis（Remote Dictionary Server远程数据服务），内存高速缓存数据库。  有客户端和服务端，一般说的是服务端 基于内存 非关系型数据库 支持主从同步 持久化 高并发读写 单进程单线程模型  应用场景 数据缓存，当访问数据库接口比较慢时，将数据通过Redis进行缓存，这样下次获取数据就不需要再次进行SQL操作，而是直接从缓存中读取。（高频读，低频写）">
+<meta name="keywords" content="服务端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis">
+<meta property="og:url" content="http://QQCR.github.io/2021/02/07/redis/index.html">
+<meta property="og:site_name" content="QQCR">
+<meta property="og:description" content="Redis基本概念最基本Redis（Remote Dictionary Server远程数据服务），内存高速缓存数据库。  有客户端和服务端，一般说的是服务端 基于内存 非关系型数据库 支持主从同步 持久化 高并发读写 单进程单线程模型  应用场景 数据缓存，当访问数据库接口比较慢时，将数据通过Redis进行缓存，这样下次获取数据就不需要再次进行SQL操作，而是直接从缓存中读取。（高频读，低频写）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-02-09T15:43:28.974Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis">
+<meta name="twitter:description" content="Redis基本概念最基本Redis（Remote Dictionary Server远程数据服务），内存高速缓存数据库。  有客户端和服务端，一般说的是服务端 基于内存 非关系型数据库 支持主从同步 持久化 高并发读写 单进程单线程模型  应用场景 数据缓存，当访问数据库接口比较慢时，将数据通过Redis进行缓存，这样下次获取数据就不需要再次进行SQL操作，而是直接从缓存中读取。（高频读，低频写）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://QQCR.github.io/2021/02/07/redis/"/>
+
+
+
+  <meta name="baidu-site-verification" content="code-AwcUWz3jHr" />
+  <meta name="google-site-verification" content="udLwf1XjYsAeTqHOKafjPvwSeAnGrr9GrqEJ_MFjiw4" />
+
+
+  <title>redis | QQCR</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QQCR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hellooooooo! 前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://QQCR.github.io/2021/02/07/redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QinChaoru">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wanzi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QQCR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">redis</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-07T23:08:05+08:00">
+                2021-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Redis基本概念"><a href="#Redis基本概念" class="headerlink" title="Redis基本概念"></a>Redis基本概念</h2><h3 id="最基本"><a href="#最基本" class="headerlink" title="最基本"></a>最基本</h3><p>Redis（Remote Dictionary Server远程数据服务），内存高速缓存数据库。</p>
+<ul>
+<li>有客户端和服务端，一般说的是服务端</li>
+<li>基于内存</li>
+<li>非关系型数据库</li>
+<li>支持主从同步</li>
+<li>持久化</li>
+<li>高并发读写</li>
+<li>单进程单线程模型</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>数据缓存，当访问数据库接口比较慢时，将数据通过Redis进行缓存，这样下次获取数据就不需要再次进行SQL操作，而是直接从缓存中读取。（高频读，低频写）</li>
+<li>队列：push和pop</li>
+<li>数据存储：依赖硬盘的持久化机制</li>
+</ul>
+<h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><h3 id="对key的操作"><a href="#对key的操作" class="headerlink" title="对key的操作"></a>对key的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">exists key  # 测试指定key是否存在</div><div class="line">type key   # 返回给定的value的类型</div><div class="line">del key   # 删除key</div><div class="line">persist key  # 设置永不过期</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><p>可以存储任何数据，包括存储字符串、整数或者浮点数，jpg图片（二进制）或者序列化的对象（都称为元素）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">set key value # 设置key对应的值为string类型的value</div><div class="line">get key     # 获取值</div><div class="line">incr key                        #对key的值做加加操作,并返回新的值</div><div class="line">decr key                        #对key的值做渐减操作,并返回新的值</div><div class="line">incrby key integer              #同incr,加指定的值</div><div class="line">decrby key integer              #同decr,减指定的值</div><div class="line">append key value        #追加内容</div></pre></td></tr></table></figure></p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>列表，可用于队列，先进先出，有push和pop操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">lpush key value    # 在key对应list的头部添加字符串元素</div><div class="line">rpush key value    # 尾部</div><div class="line">rpop key            # 在list的尾部删除元素,并返回删除元素</div><div class="line">llen key        # 获取元素个数</div><div class="line">lrange key start stop           # 获取列表元素</div><div class="line">lrange key 0 -1         # 取出所有元素</div></pre></td></tr></table></figure></p>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><p>无顺序集合，集合中的元素没有顺序，并且是唯一的，可取并集、交集、差集<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sadd key member             #添加一个string元素到key对应的set集合中,成功返回1,如果元素已经在集合中,返回0,key对应的set不存在返回错误</div><div class="line">srem key member [memeber]    #从key对应set中移除给定元素,成功返回1</div><div class="line">smove p1 p2 member          #从p1 对应set中移除member并添加到p2对应set中</div><div class="line">scard key                   #返回set的元素个数</div><div class="line">sismember key member        #判断member是否在set中</div><div class="line">sinter key1 key2...keyn     #返回所有给定key的交集</div><div class="line">sunion key1 key2...keyn      #返回所有给定key的并集</div><div class="line">sdiff key1 key2...keyn      #返回所有给定key的差集</div><div class="line">smembers key                #返回key对应set的所有元素,结果是无序的</div></pre></td></tr></table></figure></p>
+<h4 id="Sort-Set-（ZSet）"><a href="#Sort-Set-（ZSet）" class="headerlink" title="Sort Set （ZSet）"></a>Sort Set （ZSet）</h4><p>score-value的有序集合，其中score为浮点，value为元素，可以调整元素的顺序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">zrange key start stop # 获取排名范围的元素</div><div class="line">zrange key 0 -1  # 获取所有元素</div><div class="line">zcard key  # 获取集合元素个数</div><div class="line">zscore key member  # 获取元素分数</div><div class="line">zrank key member   # 获取元素排名</div></pre></td></tr></table></figure></p>
+<h4 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h4><p>有key-value的散列组，其中key是字符串，value是元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hset key field value  #插入/修改</div><div class="line">hget key field  #获取</div><div class="line">hlen key   # 查看hash长度</div><div class="line">hgetall key # 获取所有键与值</div><div class="line">hkeys key # 获取所有字段</div><div class="line">hvals key # 获取所有值</div></pre></td></tr></table></figure></p>
+<h2 id="Redis常见问题"><a href="#Redis常见问题" class="headerlink" title="Redis常见问题"></a>Redis常见问题</h2><h3 id="1-击穿"><a href="#1-击穿" class="headerlink" title="1. 击穿"></a>1. 击穿</h3><p>在Redis获取某一key时, 由于key不存在, 而必须向DB发起一次请求的行为, 称为“Redis击穿”。</p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><ul>
+<li>第一次访问</li>
+<li>恶意访问不存在的key</li>
+<li>Key过期</li>
+</ul>
+<h4 id="规避方案"><a href="#规避方案" class="headerlink" title="规避方案"></a>规避方案</h4><ul>
+<li>服务器启动时, 提前写入</li>
+<li>规范key的命名, 通过中间件拦截</li>
+<li>对某些高频访问的Key，设置合理的TTL或永不过期</li>
+</ul>
+<h3 id="2-雪崩"><a href="#2-雪崩" class="headerlink" title="2. 雪崩"></a>2. 雪崩</h3><p>Redis缓存层由于某种原因宕机后，所有的请求会涌向存储层，短时间内的高并发请求可能会导致存储层挂机，称之为“Redis雪崩”。</p>
+<h4 id="规避方案-1"><a href="#规避方案-1" class="headerlink" title="规避方案"></a>规避方案</h4><ul>
+<li>使用Redis集群</li>
+<li>限流</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/服务端/" rel="tag"># 服务端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/04/sequelize时间相关操作/" rel="next" title="sequelize时间相关操作">
+                <i class="fa fa-chevron-left"></i> sequelize时间相关操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="vcomments"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wanzi.jpg"
+               alt="QinChaoru" />
+          <p class="site-author-name" itemprop="name">QinChaoru</p>
+           
+              <p class="site-description motion-element" itemprop="description">专注一下</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/QQCR" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Github
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:qcr8866@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis基本概念"><span class="nav-number">1.</span> <span class="nav-text">Redis基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最基本"><span class="nav-number">1.1.</span> <span class="nav-text">最基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">1.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis数据类型"><span class="nav-number">2.</span> <span class="nav-text">Redis数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对key的操作"><span class="nav-number">2.1.</span> <span class="nav-text">对key的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">2.2.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">2.2.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">2.2.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-Set-（ZSet）"><span class="nav-number">2.2.4.</span> <span class="nav-text">Sort Set （ZSet）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-number">2.2.5.</span> <span class="nav-text">Hash</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常见问题"><span class="nav-number">3.</span> <span class="nav-text">Redis常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-击穿"><span class="nav-number">3.1.</span> <span class="nav-text">1. 击穿</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原因"><span class="nav-number">3.1.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#规避方案"><span class="nav-number">3.1.2.</span> <span class="nav-text">规避方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-雪崩"><span class="nav-number">3.2.</span> <span class="nav-text">2. 雪崩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规避方案-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">规避方案</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QinChaoru</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'yDFO0hqNHwoGQlJCSI9TTHBq-MdYXbMMI',
+        app_key: '79XAYJvzSmFCqb784LYLeRw3',
+        placeholder: '快来评论一个吧～'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
